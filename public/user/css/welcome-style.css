@@ -136,7 +136,7 @@
     padding: 30px;
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 10px;
     justify-content: center;
     background-color: var(--abu);
     border-radius: 15px;
@@ -151,6 +151,7 @@
 }
 
 .song-card {
+    padding: 10px 10px 0 10px;
     position: relative;
     width: 182px;
     height: 295px;
@@ -167,7 +168,11 @@
 .song-image {
     position: relative;
 }
-
+.song-card a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .song-image img {
     width: 100%;
     aspect-ratio: 1/1;

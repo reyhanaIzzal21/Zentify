@@ -63,7 +63,7 @@
                     <a href="{{ route('user.songs.show', $song->id) }}" class="text-blue-500">
                         <h3>{{ $song->title }}</h3>
                     </a>
-                    <p>By {{ Str::limit($song->artist->name, 30) }}</p>
+                    <p>By {{ Str::limit($song->artist->name, 25) }}</p>
                 </div>
             </div>
             @endforeach

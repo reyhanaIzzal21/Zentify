@@ -223,7 +223,7 @@ body .search-bar{
     padding: 30px;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
+    gap: 5px;
     justify-content: center;
     background-color: var(--abu);
     border-radius: 15px;
@@ -238,6 +238,7 @@ body .search-bar{
     z-index: 3;
 }
 .song-card {
+    padding: 10px 10px 0 10px;
     position: relative;
     height: 250px;
     border-radius: 8px;
@@ -252,6 +253,11 @@ body .search-bar{
 
 .song-image {
     position: relative;
+}
+.song-image a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .song-image img {
