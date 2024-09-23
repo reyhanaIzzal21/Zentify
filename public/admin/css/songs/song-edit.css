@@ -1,0 +1,105 @@
+:root {
+    --biru: #0060E0;
+    --hitam: #000005;
+    --abu: #1b1b1b;
+    --putih: #f8f8f8;
+    --abu-muda: #858585;
+    --biru-tua: #00459f;
+    --merah-muda: #e83e8c;
+    --hijau: #28a745;
+  }
+  
+  body {
+    background-color: var(--hitam);
+    color: var(--putih);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    background-color: var(--abu);
+    border-radius: 12px;
+    padding: 40px;
+    max-width: 650px;
+    margin: 60px auto;
+    box-shadow: 0 0 1rem var(--biru);
+    border: 1px solid var(--biru-tua);
+  }
+  
+  h1 {
+    color: var(--biru);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .alert {
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: transparent;
+    border: none;
+    color: var(--biru);
+    position: relative;
+  }
+  
+  .alert ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .form-label {
+    font-weight: bold;
+    color: var(--putih);
+    margin-bottom: 5px;
+  }
+  
+  .form-control {
+    background-color: var(--putih);
+    border: 1px solid var(--biru);
+    color: var(--hitam);
+    border-radius: 20px;
+    padding: 12px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+  }
+  
+  .form-control:focus {
+    border-color: var(--biru);
+    box-shadow: 0 0 8px var(--biru);
+  }
+  
+  .btn-success {
+    margin-top: 20px;
+    background-color: var(--hijau);
+    border: none;
+    color: var(--putih);
+    padding: 12px 25px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition:  0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  .btn-success:hover {
+    background-color: var(--biru);
+    box-shadow: 0 0 1rem var(--biru);
+  }
+  
+  .btn-success i {
+    font-size: 1.2em;
+  }
+  
+  img {
+    margin-top: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--biru-tua);
+  }
+  

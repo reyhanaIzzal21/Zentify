@@ -1,0 +1,214 @@
+:root {
+    --biru: rgb(0, 96, 224);
+    --hitam: #000005;
+    --abu: #1b1b1b;
+    --putih: #f8f8f8;
+    --abu-muda: #858585;
+    --abu-lebih-muda: #cacaca;
+    --biru-tua: #00459f;
+  }
+
+  ::-webkit-scrollbar{
+    height: .1rem;
+    width: .5rem;
+}
+::-webkit-scrollbar-track{
+    background-color: transparent;
+}
+::-webkit-scrollbar-thumb{
+    background-color: var(--biru);
+    border: 5rem;
+}
+
+  body{
+    background-color: var(--hitam);
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  header{
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    justify-content: center;
+    align-items: center;
+    padding: 15px ;
+    gap: 30px;
+    position: fixed;
+    right: 0;
+    left: 0;
+  }
+  header .logo{
+    width: 100px;
+    height: 60px;
+    transition: .3s;
+  }
+  header .logo:hover{
+    transform: scale(1.07);
+  }   
+
+  header form button i{
+    width: 20px;
+    color: #0060E0;
+  }
+  header form button img {
+    width: 40px;
+    height: 40px;
+  }
+  header nav{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 30px;
+    margin-right: 15px;
+
+  }
+  header nav a{
+    color: var(--putih);
+    font-weight: bold;
+    font-size: 15px;
+    transition: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  header nav a:hover{
+    transform: scale(1.07);
+    color: var(--biru);
+  }
+  header nav .register{
+    background-color: var(--putih);
+    border-radius: 30px;
+    border: none;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--biru);
+  }
+  header nav .register:hover{
+    box-shadow: 0 0 1rem var(--putih);
+  }
+  header form{
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+  header form svg{
+    font-size: 20px;
+    color: var(--putih);
+    width: 20px;
+    background-color: var(--biru);
+  }
+  header form .form-search{
+    background-color: var(--abu);
+    color: var(--putih);
+    border-radius: 30px;
+    border: 1px solid var(--abu);
+    padding: 15px 0 15px 60px;
+    width: 500px;
+  }
+  header form .form-search:focus{
+    border-color: var(--biru);
+    box-shadow: 0 0 5px var(--biru);
+  }
+  header form .form-search::placeholder{
+    color: var(--abu-lebih-muda);
+}
+  header form button{
+    position: absolute;
+    left: 0;
+    margin-top: 13px;
+    left: 25px;
+    z-index: 99;
+    border-right: 1px solid var(--abu-muda);
+    padding-right: 5px;
+  }
+  header form button img{
+    width: 30px;
+    height: 30px;
+  }
+
+.songs-container {
+    margin: 0 10px 10px 10px;
+    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    background-color: var(--abu);
+    border-radius: 15px;
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 98;
+    bottom: 0;
+    overflow-y: auto; 
+    overflow-x: hidden;
+    max-height: calc(100vh - 100px); 
+}
+
+.song-card {
+    position: relative;
+    width: 182px;
+    height: 295px;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    color: white;
+
+}
+.song-card:hover{
+    background-color: rgba(133, 133, 133, .2);
+}
+
+.song-image {
+    position: relative;
+}
+
+.song-image img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    height: auto;
+    border-radius: 8px;
+    background-size: cover;
+}
+
+.play-pause-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: var(--biru);
+    border: none;
+    color: white;
+    padding: 20px 22px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.play-pause-btn:active{
+    transform: scale(1.05);
+    background-color: var(--biru-tua);
+}
+
+.song-details {
+    padding: 10px;
+    text-align: start;
+}
+.song-details a{
+    color: var(--putih);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+.song-details p{
+    font-size: 14px;
+    color: var(--abu-lebih-muda);
+}
+.songs-container footer{
+  width: 100%;
+}

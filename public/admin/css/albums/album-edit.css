@@ -1,0 +1,93 @@
+:root {
+    --biru: #0060E0;
+    --hitam: #000005;
+    --abu: #1b1b1b;
+    --putih: #f8f8f8;
+    --abu-muda: #858585;
+    --biru-tua: #00459f;
+  }
+  
+  body {
+    background-color: var(--hitam);
+    color: var(--putih);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body .container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: var(--abu);
+    border-radius: 8px;
+    box-shadow: 0 0 1rem var(--biru);
+  }
+  
+  .container h1 {
+    color: var(--biru);
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: 700;
+    font-weight: bold;
+  }
+  
+  .container .alert-danger {
+    background-color: var(--biru-tua);
+    border-color: var(--biru-tua);
+    color: var(--putih);
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+  }
+  
+  .container .alert-danger ul {
+    padding-left: 20px;
+  }
+  
+  .container .form-label {
+    color: var(--putih);
+    font-weight: bold;
+  }
+  
+  .container .form-control {
+    background-color: var(--hitam);
+    border: 1px solid var(--putih);
+    color: var(--putih);
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 20px;
+  }
+  
+  .container .form-control:focus {
+    border-color: var(--biru);
+    box-shadow: 0 0 5px var(--biru);
+  }
+  
+  .container .btn-primary {
+    background-color: var(--biru);
+    border-color: var(--biru);
+    color: var(--putih);
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .container .btn-primary:hover {
+    background-color: var(--biru-tua);
+  }
+  
+  .container select.form-control {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%23f8f8f8' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position-x: 98%;
+    background-position-y: 12px;
+    background-size: 16px;
+  }
+  

@@ -1,0 +1,209 @@
+:root {
+    --biru: #0060E0;
+    --hitam: #000005;
+    --abu: #1b1b1b;
+    --putih: #f8f8f8;
+    --abu-muda: #858585;
+    --abu-lebih-muda: #cacaca;
+    --biru-tua: #00459f;
+    --lime: #aaff00;
+  }
+
+  ::-webkit-scrollbar{
+    height: .1rem;
+    width: .5rem;
+}
+::-webkit-scrollbar-track{
+    background-color: transparent;
+}
+::-webkit-scrollbar-thumb{
+    background-color: var(--biru);
+    border: 5rem;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: var(--hitam);
+    color: var(--putih);
+    font-family: "Poppins", sans-serif;
+}
+
+body .search-bar{
+    position: fixed;
+    z-index: 9999;
+    right: 50%;
+    left: 33%;
+    top: 15;
+    width: 500px;
+}
+  body .search-bar button img {
+    width: 28px;
+    height: 28px;
+  }
+  .search-bar .form-search{
+    background-color: var(--abu);
+    color: var(--putih);
+    border-radius: 30px;
+    border: 1px solid var(--abu-muda);
+    padding: 12px 0 12px 60px;
+    width: 500px;
+  }
+  .search-bar .form-search:focus{
+    border-color: var(--biru);
+    box-shadow: 0 0 5px var(--biru);
+  }
+  .search-bar .form-search::placeholder{
+    color: var(--abu-lebih-muda);
+}
+    form button{
+    position: absolute;
+    margin-top: 13px;
+    left: 10;
+    z-index: 99;
+    border-right: 1px solid var(--abu-muda);
+    padding-right: 5px;
+  }
+
+
+
+body .container-playlist{
+    margin: 0 10px 10px 10px;
+    padding: 15px;
+    justify-content: center;
+    background-color: var(--abu);
+    border-radius: 15px;
+    position: fixed;
+    left: 0;
+    top: 78.5;
+    bottom: 0;
+    right: 0;
+    overflow-y: auto; 
+    overflow-x: hidden;
+    max-height: calc(100vh - 100px); 
+}
+.container-playlist .header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    animation: header 2s infinite ;
+}
+@keyframes header{
+    0%{
+        border-bottom: 2px solid var(--biru);
+    }
+    50%{
+        border-bottom:  2px solid var(--putih);
+    }
+    100%{
+        border-bottom: 2px solid var(--biru);
+    }
+}
+.container-playlist .header h3 a{
+    font-size: 25px;
+    font-weight: 700;
+}
+.container-playlist .header a i{
+    font-size: 30px;
+    margin-right: 10px;
+    transition: .3s;
+    color: var(--putih);
+}
+.container-playlist .header a i:hover{
+    color: var(--biru);
+    transform: rotate(180deg);
+}
+.container-playlist .header a p{
+    display: none;
+    position: absolute;
+    font-size: 13px;
+    right: 3;
+    padding: 5px;
+    background-color: var(--abu);
+    border: 1px solid var(--biru);
+    z-index: 999999;
+    border-radius: 4px;
+}
+.container-playlist .header a:hover p{
+    display: block;
+}
+.container-playlist .header a{
+    margin: 0;
+    font-size: 20px;
+}
+.alert-success {
+    background-color: var(--biru);
+    color: var(--putih);
+    padding: 10px;
+    margin: 20px 0; 
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .alert-danger {
+    background-color: transparent;
+    color: #ff0000;
+    padding: 10px;
+    margin: 20px 0; 
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    border: none;
+  }
+
+
+.container-playlist .content{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.container-playlist .content .placeholder-no-playlist a{
+    text-decoration: none;
+}
+.container-playlist .content .placeholder-no-playlist a:hover{
+    text-decoration: underline;
+}
+.container-playlist .content .col-md-4{
+    border-radius: 15px;
+    height: 180px;
+    position: relative;
+    overflow: hidden;
+    transition: transform .3s;
+    background-color: var(--biru);
+}
+.container-playlist .content .col-md-4:hover{
+    transform: scale(1.02);
+    background-color: var(--lime);
+}
+.container-playlist .content .card img{
+    width: 180px;
+    height: 180px;
+    aspect-ratio: 1/1;
+    position: absolute;
+    right: -20;
+    bottom: -45;
+    object-fit: cover;
+    transform: rotate(30deg);
+}
+.container-playlist .content .card h2{
+    font-size: 28px;
+    font-weight: 700;
+    margin: 5px 10px;
+
+}
+
+
+@media screen and (max-width: 768px) {
+    .container-playlist .content{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media screen and (max-width: 568px) {
+    .container-playlist .content{
+        grid-template-columns: 1fr 1fr;
+    }
+}

@@ -1,0 +1,67 @@
+:root {
+    --biru: #0060E0;
+    --hitam: #000005;
+    --abu: #1b1b1b;
+    --putih: #f8f8f8;
+    --abu-muda: #858585;
+    --biru-tua: #00459f;
+  }
+  
+  body {
+    background: linear-gradient(to top, var(--hitam) 56%, var(--biru-tua));
+    color: var(--putih);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body .container {
+    margin-top: 20px;
+  }
+  .container h1{
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.5rem;
+  }
+  .container .card{
+    background-color: transparent;
+    width: 100%;
+    border: none;
+  }
+  .container .card h3{
+    font-size: 70px;
+    font-weight: 700;
+    text-align: center;
+  }
+  .container .card p{
+    text-align: center;
+    color: var(--abu-muda);
+    font-size: 16px;
+  }
+
+  .container .card .card-btn{
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    gap: 30px;
+  }
+  .container .card .card-btn a,
+  .container .card .card-btn form button{
+    background-color: var(--putih);
+    height: 40px;
+    width: 80px;
+    border-radius: 20px;
+    justify-content: center;
+    color: var(--biru);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    border: none;
+    transition: .3s;
+  }
+  .container .card .card-btn a:hover,
+  .container .card .card-btn form button:hover{
+    box-shadow: 0 0 1rem var(--putih);
+  }

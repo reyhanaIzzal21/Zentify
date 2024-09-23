@@ -1,0 +1,102 @@
+:root {
+    --biru: #0060E0;
+    --hitam: #000005;
+    --abu: #1b1b1b;
+    --putih: #f8f8f8;
+    --abu-muda: #858585;
+    --abu-lebih-muda: #cacaca;
+    --biru-tua: #00459f;
+    --lime: #aaff00;
+  }
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: var(--hitam);
+    color: var(--putih);
+    font-family: "Poppins", sans-serif;
+}
+
+
+body .container {
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: var(--abu);
+    border-radius: 10px;
+    box-shadow: 0 0 1rem var(--biru);
+}
+
+.container h1 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--putih);
+    margin-bottom: 20px;
+}
+
+.container .form-group label {
+    font-size: 1rem;
+    color: var(--putih);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.container .form-group input,
+.container .form-group select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: var(--hitam);
+    color: var(--putih);
+    border: 1px solid var(--biru);
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.container .form-group input[type="file"] {
+    padding: 5px;
+    background-color: var(--putih);
+    color: var(--hitam);
+}
+
+.container .form-group select {
+    height: 200px;
+    overflow-y: scroll;
+}
+
+.container .btn-primary {
+    background-color: var(--biru);
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: var(--putih);
+    cursor: pointer;
+    border-radius: 5px;
+    display: block;
+    width: 100%;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.container .btn-primary:hover {
+    background-color: var(--biru-tua);
+}
+
+.container .alert-danger {
+    background-color: #ff4d4d;
+    color: var(--putih);
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+.container .alert-danger ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.container .alert-danger li {
+    list-style: disc;
+}

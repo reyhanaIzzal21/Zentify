@@ -1,0 +1,201 @@
+:root {
+    --biru: #0060E0;
+    --hitam: #000005;
+    --abu: #1b1b1b;
+    --putih: #f8f8f8;
+    --abu-muda: #858585;
+    --abu-lebih-muda: #cacaca;
+    --biru-tua: #00459f;
+    --lime: #aaff00;
+  }
+
+  .container-login,
+  .container-register{
+    z-index: 999;
+    background: rgba(27, 27, 27, .5);
+    backdrop-filter: blur(10px);
+  }
+
+  .custom-icon {
+    animation: iconAnimation 4s ease infinite;
+  }
+
+  @keyframes iconAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.06);
+    }
+    100% {
+        transform: scale(1);
+    }
+  }
+
+  .headset{
+    filter: blur(4px);
+    width: 100px;
+    position: absolute;
+    right: 100px;
+    top: 50px;
+    rotate: 20deg;
+    z-index: 1;
+    transition: .3s;
+    animation: headset 3s ease-in-out infinite;
+  }
+  .headset:hover{
+    filter: blur(0);
+  }
+  @keyframes headset {
+    0% {
+      transform: translateY(0) ;
+    }
+    50% {
+      transform: translateY(20px) ;
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+
+  .trous{
+    width: 400px;
+    position: absolute;
+    left: -140px;
+    top: -80px;
+    z-index: 1;
+    animation: complexMove 4s ease-in-out infinite;
+  }
+  .trous-two{
+    width: 400px;
+    position: absolute;
+    right: -140px;
+    bottom: -80px;
+    z-index: 1;
+    animation: complexMove2 4s ease-in-out infinite;
+  }
+
+  @keyframes complexMove {
+    0% {
+      transform: translateX(0) scale(1) rotate(0deg);
+    }
+    50% {
+      transform: translateX(50px) scale(1.3) rotate(45deg);
+    }
+    100% {
+      transform: translateX(0) scale(1) rotate(0deg);
+    }
+  }
+  
+  @keyframes complexMove2 {
+    0% {
+      transform: translateX(0) scale(1) rotate(0deg);
+    }
+    50% {
+      transform: translateX(50px) scale(1.6) rotate(-45deg);
+    }
+    100% {
+      transform: translateX(0) scale(1) rotate(0deg);
+    }
+  }
+  
+
+/* profile start */
+/* Profile Section */
+.profile-section {
+    background-color: var(--hitam);
+    padding: 3rem 0;
+    color: var(--putih);
+    margin-top: 40px;
+}
+
+/* Section Title */
+.profile-section-title {
+    color: var(--putih);
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: linear-gradient(90deg, var(--biru) 30%, var(--abu-lebih-muda));
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Profile Card */
+.profile-card {
+    background-color: var(--abu);
+    color: var(--putih);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Danger Card */
+.profile-card-danger {
+    background-color: #eb0f07;
+    color: var(--putih);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Profile Button */
+.profile-button {
+    background-color: var(--biru);
+    color: var(--putih);
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+}
+
+.profile-button:hover {
+    background-color: var(--biru-tua);
+    transform: scale(1.05);
+}
+
+/* Danger Button */
+.profile-button-danger {
+    background-color: var(--hitam);
+    color: var(--putih);
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+}
+
+.profile-button-danger:hover {
+    background-color: var(--hitam);
+    transform: scale(1.05);
+}
+
+/* Text Input */
+.profile-input {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--hitam);
+    color: var(--putih);
+    border-radius: 6px;
+    border: 1px solid var(--biru);
+    margin-top: 0.5rem;
+}
+
+.profile-input:focus {
+    outline: none;
+    border-color: var(--biru);
+    box-shadow: 0 0 5px rgba(0, 96, 224, 0.5);
+}
+
+
+/* profile end */

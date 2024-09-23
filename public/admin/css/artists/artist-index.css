@@ -1,0 +1,225 @@
+:root {
+    --biru: #0060E0;
+    --hitam: #000005;
+    --abu: #1b1b1b;
+    --putih: #ebebeb;
+    --abu-muda: #858585;
+  }
+  
+  body {
+    background-color: var(--hitam);
+    color: var(--putih);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 40px 20px 20px;
+  }
+  .container .header{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0 0 0;
+  }
+  .container .h2-header{
+    font-size: 30px;
+    font-weight: 700;
+  }
+  .artist-grid {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 30px;
+  }
+  
+  .artist-card {
+    background-color: var(--abu);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s;
+  }
+  
+  .artist-card:hover {
+    transform: scale(1.02);
+  }
+  
+  .artist-photo {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  .artist-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+  
+  .artist-card:hover img {
+    transform: scale(1.1);
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .artist-card:hover .overlay {
+    opacity: 1;
+  }
+  
+  .play-button {
+    background-color: var(--biru);
+    color: var(--putih);
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
+  }
+  
+  .play-button:hover {
+    background-color: var(--putih);
+    color: var(--biru);
+  }
+  
+  .artist-info {
+    text-align: center;
+    padding: 15px 0;
+  }
+  
+  .artist-info h3 {
+    margin: 10px 0 5px;
+    font-size: 18px;
+    color: var(--putih);
+  }
+  
+  .artist-info p {
+    margin: 0;
+    color: var(--abu-muda);
+    font-size: 14px;
+  }
+  
+  .alert-success {
+    background-color: var(--biru);
+    color: var(--putih);
+    padding: 10px;
+    margin: 20px 0; 
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .alert-danger {
+    background-color: transparent;
+    color: #ff0000;
+    padding: 10px;
+    margin: 20px 0; 
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    border: none;
+  }
+
+.button {
+    background-color: #0060E0;
+    border: 0px;
+    outline: 0px;
+    color: #fff;
+    width: 200px;
+    padding: 10px 20px;
+    border-radius: 50px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: .3s;
+  }
+  .button:hover{
+    box-shadow: 0 0 1rem var(--biru);
+  }
+  
+  .liquid {
+    background-color: #0060E0;
+    width: 200px;
+    height: 70px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    box-shadow: inset 5px -5px 25px #0060E0,
+    inset -5px 0px 25px #0060E0;
+  }
+  
+  .liquid::after {
+    content: '';
+    width: 450px;
+    height: 400px;
+    background: #000;
+    z-index: 1;
+    position: absolute;
+    left: -110px;
+    top: -380px;
+    border-radius: 45%;
+    animation: animate 5s linear 2s infinite;
+  }
+  
+  .liquid::before {
+    content: '';
+    width: 450px;
+    height: 400px;
+    background-color: rgb(68, 160, 235);
+    z-index: 1;
+    position: absolute;
+    left: -110px;
+    top: -380px;
+    border-radius: 40%;
+    animation: animate 5s linear 1.8s infinite;
+  }
+  
+  .btn-txt {
+    position: relative;
+    z-index: 1;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: sans-serif;
+  }
+  
+  @keyframes animate {
+    from {
+      transform: rotate(0deg);
+    }
+  
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .artist-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .artist-photo {
+        height: 150px;
+      }
+      .container .header{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+  }

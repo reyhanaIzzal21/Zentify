@@ -1,0 +1,130 @@
+:root {
+  --biru: #0060E0;
+  --hitam: #000005;
+  --abu: #1b1b1b;
+  --putih: #f8f8f8;
+  --abu-muda: #858585;
+  --biru-tua: #00459f;
+}
+
+body {
+  background-color: var(--hitam);
+  color: var(--putih);
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0; 
+}
+
+body .container {
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: var(--abu);
+  border-radius: 12px;
+  box-shadow: 0 0 1rem var(--biru);
+}
+
+.container h2 {
+  color: var(--biru);
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.container label {
+  font-size: 1rem;
+  color: var(--putih);
+  margin: 0 40px 8px 40px;
+  display: block;
+}
+
+.container input[type="text"],
+.container textarea,
+.container input[type="file"] {
+  width: 90%;
+  padding: 12px;
+  margin: 0 40px;
+  border: 1px solid var(--putih);
+  border-radius: 20px;
+  background-color: var(--hitam);
+  color: var(--putih);
+}
+
+.container textarea {
+  resize: vertical;
+}
+
+.container img {
+  margin-left: 40px;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid var(--biru);
+  box-shadow: 0 4px 8px rgba(0, 96, 224, 0.3);
+  margin-bottom: 10px;
+}
+
+.container button {
+  margin: 0 20px 0 40px;
+  background-color: var(--biru);
+  color: var(--putih);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.container  button:hover {
+  background-color: var(--biru-tua);
+  transform: scale(1.05);
+}
+
+.container button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 96, 224, 0.5);
+}
+
+.container a {
+  background-color: var(--abu-muda);
+  color: var(--putih);
+  padding: 13px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.container a:hover {
+  color: var(--putih);
+  background-color: var(--biru-tua);
+  transform: scale(1.05);
+}
+
+.alert {
+  background-color: rgba(255, 0, 0, 0.15);
+  border-left: 5px solid var(--biru);
+  border-radius: 8px;
+  color: var(--putih);
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.alert ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.alert li {
+  margin: 5px 0;
+  color: var(--biru);
+}

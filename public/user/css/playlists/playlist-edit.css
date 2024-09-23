@@ -1,0 +1,117 @@
+:root {
+    --biru: #0060E0;
+    --hitam: #000005;
+    --abu: #1b1b1b;
+    --putih: #f8f8f8;
+    --abu-muda: #858585;
+    --biru-tua: #00459f;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: var(--hitam);
+    color: var(--putih);
+    font-family: "Poppins", sans-serif;
+}
+
+/* Styling the container */
+body .container {
+    max-width: 800px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: var(--abu);
+    border-radius: 12px;
+    box-shadow: 0 0 1rem var(--biru);
+}
+
+/* Title styling */
+.container h1 {
+    color: var(--putih);
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 25px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Form inputs and labels */
+.container .form-group label {
+    color: var(--putih);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.container .form-group input,
+.container .form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--putih);
+    border-radius: 8px;
+    background-color: var(--hitam);
+    color: var(--putih);
+    font-size: 1rem;
+    margin-top: 8px;
+}
+.container .form-group select{
+    height: 200px;
+}
+.container .form-group input:focus,
+.container .form-group select:focus {
+    outline: none;
+    border: 2px solid var(--biru);
+}
+
+/* Image thumbnail styling */
+.container .img-thumbnail {
+    display: block;
+    margin-top: 10px;
+    border: 2px solid var(--biru);
+    border-radius: 8px;
+}
+
+/* Submit button */
+.container .btn {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--biru);
+    border: none;
+    border-radius: 8px;
+    color: var(--putih);
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.container .btn:hover {
+    background-color: var(--biru-tua);
+}
+
+/* Error message styling */
+.container .alert {
+    background-color: rgba(255, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.container .alert ul {
+    color: var(--putih);
+    margin-left: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    body .container {
+        padding: 15px;
+    }
+
+    .container h1 {
+        font-size: 2rem;
+    }
+
+    .container .btn {
+        font-size: 1rem;
+    }
+}

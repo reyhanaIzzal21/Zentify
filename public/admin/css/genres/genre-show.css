@@ -1,0 +1,61 @@
+:root {
+    --biru: #0060E0;
+    --hitam: #000005;
+    --abu: #1b1b1b;
+    --putih: #f8f8f8;
+    --abu-muda: #858585;
+    --biru-tua: #00459f;
+  }
+  
+  body {
+    background: linear-gradient(to top, var(--hitam) 56%, var(--biru-tua));
+    color: var(--putih);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    padding: 30px;
+  }
+  .container h1{
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  .container .card{
+    background-color: transparent;
+    border: none;
+  }
+  .container .card h2{
+    font-size: 80px;
+    text-align: center;
+    font-weight: 800;
+  }
+  .container .card .card-btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 70px;
+  }
+  .container .card .card-btn a,
+  .container .card .card-btn form button{
+    height: 40px;
+    background-color: var(--putih);
+    border-radius: 20px;
+    color: var(--biru);
+    border: none;
+    width: 90px;
+    font-weight: bold;
+    transition: .3s;
+  }
+
+  .container .card .card-btn a:hover{
+    box-shadow: 0 0 1rem var(--putih);
+  }
+  .container .card .card-btn form button:hover{
+    background-color: #ff1111;
+    box-shadow: 0 0 1rem #ff1111;
+    color: var(--putih);
+  }

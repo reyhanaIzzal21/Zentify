@@ -1,0 +1,188 @@
+:root {
+    --biru: #0060E0;
+    --hitam: #000005;
+    --abu: rgb(27, 27, 27);
+    --putih: #ebebeb;
+    --abu-muda: #858585;
+  }
+  
+  body {
+    background-color: var(--hitam);
+    color: var(--putih);
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  .header{
+    display: flex;
+    justify-content: space-between;
+  }
+  .header h1{
+    font-weight: 700;
+    font-size: 30px;
+  }
+  
+  .btn-add-album {
+    background-color: var(--biru);
+    color: var(--putih);
+    padding: 10px 15px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 20px;
+    display: inline-block;
+    transition: 0.3s;
+  }
+  
+  .btn-add-album:hover {
+    background-color: var(--abu-muda);
+    color: var(--biru);
+    box-shadow: 0 0 1rem var(--abu-muda);
+  }
+  
+  .album-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .album-table th,
+  .album-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--abu-muda);
+  }
+  
+  .album-table th {
+    background-color: rgba(27, 27, 27, .5);
+    color: var(--putih);
+  }
+  
+  .album-table tr:hover {
+    background-color: rgba(27, 27, 27, .5);
+  }
+  
+  .btn-action {
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-right: 5px;
+    text-decoration: none;
+    color: var(--putih);
+    display: inline-block;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-action.show {
+    background-color: var(--biru);
+  }
+  
+  .btn-action.edit {
+    background-color: #f0ad4e;
+  }
+  
+  .btn-action.delete {
+    background-color: #d9534f;
+  }
+  
+  .btn-action:hover {
+    background-color: var(--abu-muda);
+    color: var(--biru);
+  }
+  
+  .button {
+    background-color: #0060E0;
+    border: 0px;
+    outline: 0px;
+    color: #fff;
+    width: 220px;
+    padding: 10px 20px;
+    border-radius: 50px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: .3s;
+  }
+  .button:hover{
+    box-shadow: 0 0 1rem var(--biru);
+  }
+  
+  .liquid {
+    background-color: #0060E0;
+    width: 200px;
+    height: 70px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    box-shadow: inset 5px -5px 25px #0060E0,
+    inset -5px 0px 25px #0060E0;
+  }
+  
+  .liquid::after {
+    content: '';
+    width: 450px;
+    height: 400px;
+    background: #000;
+    z-index: 1;
+    position: absolute;
+    left: -110px;
+    top: -380px;
+    border-radius: 45%;
+    animation: animate 5s linear 2s infinite;
+  }
+  
+  .liquid::before {
+    content: '';
+    width: 450px;
+    height: 400px;
+    background-color: rgb(68, 160, 235);
+    z-index: 1;
+    position: absolute;
+    left: -110px;
+    top: -380px;
+    border-radius: 40%;
+    animation: animate 5s linear 1.8s infinite;
+  }
+  
+  .btn-txt {
+    position: relative;
+    z-index: 1;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: sans-serif;
+  }
+  
+  @keyframes animate {
+    from {
+      transform: rotate(0deg);
+    }
+  
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .alert-success {
+    background-color: var(--biru);
+    color: var(--putih);
+    padding: 10px;
+    margin: 20px 0; 
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .alert-danger {
+    background-color: transparent;
+    color: #ff0000;
+    padding: 10px;
+    margin: 20px 0; 
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    border: none;
+  }

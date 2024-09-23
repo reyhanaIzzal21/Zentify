@@ -1,0 +1,210 @@
+:root {
+    --biru: #0060E0;
+    --hitam: #000005;
+    --abu: #1b1b1b;
+    --putih: #ebebeb;
+    --abu-muda: #858585;
+  }
+  
+  body {
+    background-color: var(--hitam);
+    color: var(--putih);
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    padding: 20px;
+    width: 100%;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  h1 {
+    font-size: 35px;
+    font-weight: 700;
+    color: var(--putih);
+    margin: 0;
+  }
+  
+  .table-container {
+    overflow-x: auto;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: rgba(27, 27, 27, .2);
+  }
+  
+  .table th, .table td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid rgba(133, 133, 133, .5);
+    color: var(--putih);
+  }
+  
+  .table th {
+    background-color: rgba(133, 133, 133, .1);
+    font-weight: bold;
+  }
+  
+  .table td {
+    color: var(--putih);
+  }
+  
+  .audio-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+  }
+  
+  audio {
+    width: 80%;
+    width: 280px;
+    height: 40px;
+    border-radius: 10px;
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;  
+  }
+  
+  .btn-action {
+    background-color: transparent;
+    color: var(--putih);
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    margin: 15px 0;
+    transition: color 0.3s;
+  }
+  
+  .btn-action:hover {
+    color: var(--biru);
+  }
+  
+  .btn-action.delete:hover {
+    color: #ff4d4d;
+  }
+  
+  .alert-success {
+    background-color: var(--biru);
+    color: var(--putih);
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .form-inline {
+    display: inline;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .header {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .table th, .table td {
+      padding: 10px;
+    }
+  
+    .btn-add {
+      width: 100%;
+      text-align: center;
+    }
+    
+    audio {
+      width: 100%;
+    }
+  }
+  
+
+  .button {
+    background-color: #0060E0;
+    border: 0px;
+    outline: 0px;
+    color: #fff;
+    width: 220px;
+    padding: 10px 20px;
+    border-radius: 50px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: .3s;
+  }
+  .button:hover{
+    box-shadow: 0 0 1rem var(--biru);
+  }
+  
+  .liquid {
+    background-color: #0060E0;
+    width: 200px;
+    height: 70px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    box-shadow: inset 5px -5px 25px #0060E0,
+    inset -5px 0px 25px #0060E0;
+  }
+  
+  .liquid::after {
+    content: '';
+    width: 450px;
+    height: 400px;
+    background: #000; 
+    z-index: 1;
+    position: absolute;
+    left: -110px;
+    top: -380px;
+    border-radius: 45%;
+    animation: animate 5s linear 2s infinite;
+  }
+  
+  .liquid::before {
+    content: '';
+    width: 450px;
+    height: 400px;
+    background-color: rgb(68, 160, 235);
+    z-index: 1;
+    position: absolute;
+    left: -110px;
+    top: -380px;
+    border-radius: 40%;
+    animation: animate 5s linear 1.8s infinite;
+  }
+  
+  .btn-txt {
+    position: relative;
+    z-index: 1;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: sans-serif;
+  }
+  
+  @keyframes animate {
+    from {
+      transform: rotate(0deg);
+    }
+  
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  

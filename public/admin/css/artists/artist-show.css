@@ -1,0 +1,111 @@
+:root {
+    --biru: #0060E0;
+    --hitam: #000005;
+    --abu: #1b1b1b;
+    --putih: #f8f8f8;
+    --abu-muda: #858585;
+    --biru-tua: #00459f;
+  }
+  
+  body {
+    background: linear-gradient(to top, var(--hitam) 56%, var(--biru-tua));
+    color: var(--putih);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    margin: 50px auto;
+    padding: 30px;
+  }
+  .container .container-content{
+    display: grid;
+    grid-template-columns: 1fr 2.5fr;
+    justify-content: center;
+    gap: 20px;
+  }
+  .container .container-content .text-item{
+    margin-top: 45px;
+  }
+  .container .container-content .text-item h4{
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .container .container-content .text-item .name{
+    font-size: 60px;
+    line-height: .9;
+    font-weight: 800;
+    color: var(--putih);
+    margin: 0;
+  }
+  .container .photo {
+    overflow: hidden;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid var(--biru);
+    margin-bottom: 15px;
+    box-shadow: 0 6px 12px rgba(0, 96, 224, 0.5);
+  }
+  .container .photo img{
+    width: 250px;
+    height: 250px;
+    transition: .3s;
+  }
+  .container .photo img:hover{
+    transform: scale(1.1);
+  }
+  .container .btn{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+  }
+  a,
+  button {
+    display: inline-block;
+    margin: 0 20px;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--putih);
+    transition: background-color 0.3s ease, transform 0.2s;
+  }
+  
+  .bg-gray-500 {
+    background-color: var(--putih);
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .bg-gray-500:hover{
+    color: var(--putih);
+  }
+  .bg-yellow-500 {
+    color: var(--putih);
+    text-decoration: none;
+    background-color: var(--biru);
+  }
+  .bg-yellow-500:hover{
+    color: var(--putih);
+  }
+  .text-red-500 {
+    color: var(--putih);
+    background-color: var(--biru);
+    border-radius: 30px;
+    border: none;
+    margin: 0 20px;
+  }
+  
+  button[type="submit"]:hover,
+  a:hover {
+    background-color: var(--biru-tua);
+    transform: scale(1.1);
+  }
+  
+  form.inline {
+    display: inline-block;
+    margin: 0;
+  }

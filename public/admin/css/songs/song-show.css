@@ -1,0 +1,55 @@
+:root {
+    --biru: #0061e0;
+    --hitam: #000005;
+    --abu: #1b1b1b;
+    --putih: #f8f8f8;
+    --abu-muda: #858585;
+    --biru-tua: #00459f;
+  }
+  
+  body {
+    background: linear-gradient(to top, var(--hitam) 36%, var(--biru-tua));
+    color: var(--putih);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container{
+    padding: 0;
+  }
+  .container .card-body{
+    margin: 50px 20px 30px 20px ;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 3fr;
+  }
+  .container .card-body img{
+    width: 220px;
+    height: 220px;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  .container .card-body .item h2{
+    font-size: 65px;
+    font-weight: 800;
+  }
+  .container .card-body p{
+    color: var(--abu-muda);
+    margin: 5px;
+  }
+  .container .card-body .item .item-two{
+    display: flex;
+    gap: 30px;
+  }
+
+  .container .audio-control{
+    background-color: transparent;
+    backdrop-filter: blur(40px);
+    width: 100%;
+    left: 0;
+    position: relative;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+  }
