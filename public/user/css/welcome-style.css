@@ -1,5 +1,5 @@
 :root {
-    --biru: rgb(0, 96, 224);
+    --biru: #0060e0;
     --hitam: #000005;
     --abu: #1b1b1b;
     --putih: #f8f8f8;
@@ -130,6 +130,36 @@
     width: 30px;
     height: 30px;
   }
+
+  body .alert.alert-success{
+    z-index: 999;
+    background-color: transparent;
+    width: 100%;
+    position: fixed;
+    top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+  }
+  body .alert.alert-success p{
+    color: var(--putih);
+    font-size: 17px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    width: 400px;
+    height: 100px;
+    border-radius: 20px;
+    background-color: var(--biru);
+    box-shadow: 0 0 1rem var(--abu-muda);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  body .alert.alert-success i{
+    font-size: 18px;
+  } 
 
 .songs-container {
     margin: 0 10px 10px 10px;
