@@ -36,12 +36,17 @@ class PlaylistController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validasi gambar
-            'songs' => 'nullable|array', // Menyesuaikan agar songs bisa kosong
-            'songs.*' => 'exists:songs,id',
-        ]);
+        $request->validate(
+            [
+                'name' => 'required|string|max:255',
+                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'songs' => 'nullable|array',
+                'songs.*' => 'exists:songs,id',
+            ],
+            [
+                'name.required' => 'Nama playlist wajib diisi.',
+            ]
+        );
 
         $playlist = new Playlist();
         $playlist->name = $request->input('name');
@@ -60,7 +65,7 @@ class PlaylistController extends Controller
             $playlist->songs()->sync($request->songs);
         }
 
-        return redirect()->route('user.songs.index')->with('success', 'Playlist Berhasil Di Buat');
+        return redirect()->route('user.playlists.show', $playlist->id)->with('success', 'Playlist Berhasil Di Buat');
     }
 
     public function edit(Playlist $playlist)
@@ -76,12 +81,17 @@ class PlaylistController extends Controller
 
     public function update(Request $request, Playlist $playlist)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validasi gambar
-            'songs' => 'nullable|array', // Menyesuaikan agar songs bisa kosong
-            'songs.*' => 'exists:songs,id',
-        ]);
+        $request->validate(
+            [
+                'name' => 'required|string|max:255',
+                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'songs' => 'nullable|array',
+                'songs.*' => 'exists:songs,id',
+            ],
+            [
+                'name.required' => 'Nama playlist wajib diisi.',
+            ]
+        );
 
         $playlist->name = $request->input('name');
 
@@ -105,7 +115,7 @@ class PlaylistController extends Controller
             $playlist->songs()->sync([]); // Jika tidak ada lagu yang dipilih, hapus semua lagu dari playlist
         }
 
-        return redirect()->route('user.songs.index')->with('success', 'Playlist Berhasil Di Perbarui');
+        return redirect()->route('user.playlists.show', $playlist->id)->with('success', 'Playlist Berhasil Di Perbarui');
     }
 
     public function destroy(Playlist $playlist)
@@ -127,7 +137,7 @@ class PlaylistController extends Controller
 
     public function show(Playlist $playlist)
     {
-        // Memastikan hanya user pemilik playlist yang bisa melihat
+        // hanya user pemilik playlist yang bisa melihat
         if ($playlist->user_id !== Auth::id()) {
             return redirect()->route('user.playlists.index')->with('error', 'Unauthorized action');
         }

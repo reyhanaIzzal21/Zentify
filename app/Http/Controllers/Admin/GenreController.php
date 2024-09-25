@@ -21,15 +21,21 @@ class GenreController extends Controller
 
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-        ]);
+        $validatedData = $request->validate(
+            [
+                'name' => 'required|string|unique:genres,name|max:255',
+            ],
+            [
+                'name.required' => 'Nama genre wajib di isi.',
+                'name.unique' => 'Nama genre sudah ada, silahkan pilih nama yang lain.',
+            ]
+        );
 
         // Menyimpan genre
         Genre::create($validatedData);
 
         // Redirect dengan pesan sukses
-        return redirect()->route('admin.genres.index')->with('success', 'Genre created successfully.');
+        return redirect()->route('admin.genres.index')->with('success', 'Berhasil membuat genre baru.');
     }
 
     public function show(Genre $genre)
@@ -45,15 +51,21 @@ class GenreController extends Controller
     public function update(Request $request, Genre $genre)
     {
         // Validasi data
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-        ]);
+        $validatedData = $request->validate(
+            [
+                'name' => 'required|string|max:255|unique:genres,name,' . $genre->id,
+            ],
+            [
+                'name.required' => 'Nama genre wajib di isi.',
+                'name.unique' => 'Nama genre sudah ada, silahkan pilih nama yang lain.',
+            ]
+        );
 
         // Memperbarui genre
         $genre->update($validatedData);
 
         // Redirect dengan pesan sukses
-        return redirect()->route('admin.genres.index')->with('success', 'Genre updated successfully.');
+        return redirect()->route('admin.genres.index')->with('success', 'Berhasil mengedit nama genre.');
     }
 
     public function destroy(Genre $genre)
@@ -66,6 +78,6 @@ class GenreController extends Controller
         }
 
         $genre->delete();
-        return redirect()->route('admin.genres.index')->with('success', 'Genre deleted successfully.');
+        return redirect()->route('admin.genres.index')->with('success', 'Berhasil menghapus genre.');
     }
 }

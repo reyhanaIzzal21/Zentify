@@ -26,11 +26,17 @@ class ArtistController extends Controller
     public function store(Request $request)
     {
         // Validasi data
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'bio' => 'nullable|string',
-            'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
+        $validatedData = $request->validate(
+            [
+                'name' => 'required|string|max:255',
+                'bio' => 'nullable|string',
+                'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            ],
+            [
+                'name.required' => 'Nama artis wajib diisi.',
+                'photo.required' => 'Foto Artis wajib diisi.',
+            ]
+        );
 
         // Menyiapkan data untuk disimpan
         $data = $validatedData;
@@ -62,11 +68,17 @@ class ArtistController extends Controller
 
     public function update(Request $request, Artist $artist)
     {
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'bio' => 'nullable|string',
-            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
+        $validatedData = $request->validate(
+            [
+                'name' => 'required|string|max:255',
+                'bio' => 'nullable|string',
+                'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            ],
+            [
+                'name.required' => 'Nama artis wajib diisi.',
+                'photo.required' => 'Foto Artis wajib diisi.',
+            ]
+        );
 
         $data = $validatedData;
 

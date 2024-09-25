@@ -23,11 +23,17 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         // Validasi data
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email,' . $user->id,
-            'role' => 'required|string|in:admin,user',
-        ]);
+        $validatedData = $request->validate(
+            [
+                'name' => 'required|string|max:255',
+                'email' => 'required|email|unique:users,email,' . $user->id,
+                'role' => 'required|string|in:admin,user',
+            ],
+            [
+                'name.required' => 'Nama wajib diisi.',
+                'email.unique' => 'Nama email sudah digunakan oleh user lain.',
+            ]
+        );
 
         // Memperbarui data user
         $user->name = $validatedData['name'];
@@ -36,12 +42,12 @@ class UserController extends Controller
         $user->save();
 
         // Redirect dengan pesan sukses
-        return redirect()->route('admin.users.index')->with('success', 'User updated successfully.');
+        return redirect()->route('admin.users.index')->with('success', 'Berhasil mengupdate user.');
     }
 
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect()->route('admin.users.index')->with('success', 'User deleted successfully.');
+        return redirect()->route('admin.users.index')->with('success', 'Berhasil menghapus user.');
     }
 }

@@ -24,10 +24,16 @@ class AlbumController extends Controller
     public function store(Request $request)
     {
         // Validasi data
-        $validatedData = $request->validate([
-            'title' => 'required|string|max:255',
-            'artist_id' => 'required|integer|exists:artists,id',
-        ]);
+        $validatedData = $request->validate(
+            [
+                'title' => 'required|string|max:255',
+                'artist_id' => 'required|integer|exists:artists,id',
+            ],
+            [
+                'title.required' => 'Judul Album wajib diisi.',
+                'artist_id.required' => 'Nama Artis wajib dipilih.',
+            ]
+        );
 
         // Menyimpan album
         Album::create($validatedData);
@@ -50,10 +56,16 @@ class AlbumController extends Controller
     public function update(Request $request, Album $album)
     {
         // Validasi data
-        $validatedData = $request->validate([
-            'title' => 'required|string|max:255',
-            'artist_id' => 'required|integer|exists:artists,id',
-        ]);
+        $validatedData = $request->validate(
+            [
+                'title' => 'required|string|max:255',
+                'artist_id' => 'required|integer|exists:artists,id',
+            ],
+            [
+                'title.required' => 'Judul Album wajib diisi.',
+                'artist_id.required' => 'Nama Artis wajib dipilih.',
+            ]
+        );
 
         // Memperbarui album
         $album->update($validatedData);

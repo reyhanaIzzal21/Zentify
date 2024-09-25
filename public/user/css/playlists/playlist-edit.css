@@ -90,7 +90,7 @@ body .container {
 
 /* Error message styling */
 .container .alert {
-    background-color: rgba(255, 0, 0, 0.2);
+    background-color: rgb(248, 23, 23);
     padding: 15px;
     border-radius: 8px;
     margin-bottom: 20px;

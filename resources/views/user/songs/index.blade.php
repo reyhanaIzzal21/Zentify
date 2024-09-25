@@ -24,7 +24,9 @@
                             class="fa-solid fa-plus"></i>
                         <p>Buat Playlist</p>
                     </a>
-                    <a href="{{ url('playlists') }}" class="btn-next-playlist"><i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="{{ url('playlists') }}" class="btn-next-playlist"><i class="fa-solid fa-arrow-right"></i>
+                        <p class="daftar-playlist">Daftar Playlist</p>
+                    </a>
                 </div>
             </div>
             <ul class="playlist-list">

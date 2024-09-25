@@ -172,6 +172,20 @@ body .search-bar{
 .container-ps .sidebar .item.one a:hover p{
     display: block;
 }
+.container-ps .sidebar .item.one a .daftar-playlist{
+    display: none;
+    position: absolute;
+    font-size: 13px;
+    right: 0px;
+    padding: 5px;
+    background-color: var(--abu);
+    border: 1px solid var(--biru);
+    z-index: 999999;
+    border-radius: 4px;
+}
+.container-ps .sidebar .item.one a:hover .daftar-playlist{
+    display: block;
+}
 .container-ps .sidebar .item.one a{
     margin: 0;
 }

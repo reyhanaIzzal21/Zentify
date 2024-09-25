@@ -45,14 +45,23 @@ class SongController extends Controller
     public function store(Request $request)
     {
         // Validasi input
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'artist_id' => 'required|integer',
-            'album_id' => 'required|nullable|integer',
-            'genre_id' => 'required|integer',
-            'file_path' => 'required|file|mimes:mp3,wav|max:1024000',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
+        $request->validate(
+            [
+                'title' => 'required|string|max:255',
+                'artist_id' => 'required|integer',
+                'album_id' => 'required|nullable|integer',
+                'genre_id' => 'required|integer',
+                'file_path' => 'required|file|mimes:mp3,wav|max:1024000',
+                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            ],
+            [
+                'title.required' => 'Judul lagu wajib diisi.',
+                'artist_id.required' => 'Nama Artis wajib diisi.',
+                'album_id.required' => 'Album wajib dipilih.',
+                'genre_id.required' => 'Genre wajib dipilih.',
+                'file_path.required' => 'File lagu wajib diisi.',
+            ]
+        );
 
         $filePath = $request->file('file_path')->store('songs', 'public');
 
@@ -89,14 +98,22 @@ class SongController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'artist_id' => 'required|integer',
-            'album_id' => 'required|nullable|integer',
-            'genre_id' => 'required|integer',
-            'file_path' => 'nullable|file|mimes:mp3,wav|max:1024000',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
+        $request->validate(
+            [
+                'title' => 'required|string|max:255',
+                'artist_id' => 'required|integer',
+                'album_id' => 'required|nullable|integer',
+                'genre_id' => 'required|integer',
+                'file_path' => 'nullable|file|mimes:mp3,wav|max:1024000',
+                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            ],
+            [
+                'title.required' => 'Judul lagu wajib diisi.',
+                'artist_id.required' => 'Nama Artis wajib diisi.',
+                'album_id.required' => 'Album wajib dipilih.',
+                'genre_id.required' => 'Genre wajib dipilih.',
+            ]
+        );
 
         $song = Song::findOrFail($id);
 
@@ -137,6 +154,6 @@ class SongController extends Controller
 
         $song->delete();
 
-        return redirect()->route('admin.songs.index')->with('success', 'Song and associated files deleted successfully.');
+        return redirect()->route('admin.songs.index')->with('success', 'Lagu dan File terkait berhasil dihapus.');
     }
 }
