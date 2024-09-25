@@ -210,6 +210,10 @@
     font-weight: bold;
     font-size: 16px;
 }
+.song-details a h3{
+  text-align: start;
+  width: 100%;
+}
 .song-details p{
     font-size: 13px;
     color: var(--abu-lebih-muda);
