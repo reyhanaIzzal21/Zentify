@@ -1,0 +1,335 @@
+:root {
+    --biru: rgb(0, 96, 224);
+    --hitam: #000005;
+    --abu: #1b1b1b;
+    --putih: #f8f8f8;
+    --abu-muda: #858585;
+    --abu-lebih-muda: #cacaca;
+    --biru-tua: rgb(0, 69, 159);
+  }
+
+  ::-webkit-scrollbar{
+    height: .1rem;
+    width: .5rem;
+}
+::-webkit-scrollbar-track{
+    background-color: transparent;
+}
+::-webkit-scrollbar-thumb{
+    background-color: var(--biru);
+    border: 5rem;
+}
+
+  body{
+    background-color: var(--hitam);
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  body header{
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    justify-content: center;
+    align-items: center;
+    padding: 15px ;
+    gap: 30px;
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    z-index: 999999;
+    background-color: transparent;
+  }
+  header .logo{
+    width: 100px;
+    height: 60px;
+    transition: .3s;
+  }
+  header .logo:hover{
+    transform: scale(1.07);
+  }   
+
+  header form button i{
+    width: 20px;
+    color: #0060E0;
+  }
+  header form button img {
+    width: 40px;
+    height: 40px;
+  }
+  header nav{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 30px;
+    margin-right: 15px;
+
+  }
+  header nav a{
+    color: var(--putih);
+    font-weight: bold;
+    font-size: 15px;
+    transition: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  header nav a:hover{
+    transform: scale(1.07);
+    color: var(--biru);
+  }
+  header nav .register{
+    background-color: var(--putih);
+    border-radius: 30px;
+    border: none;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--biru);
+  }
+  header nav .register:hover{
+    box-shadow: 0 0 1rem var(--putih);
+  }
+  header form{
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+  header form svg{
+    font-size: 20px;
+    color: var(--putih);
+    width: 20px;
+    background-color: var(--biru);
+  }
+  header form .form-search{
+    background-color: var(--abu);
+    color: var(--putih);
+    border-radius: 30px;
+    border: 1px solid var(--abu);
+    padding: 15px 0 15px 60px;
+    width: 500px;
+  }
+  header form .form-search:focus{
+    border-color: var(--biru);
+    box-shadow: 0 0 5px var(--biru);
+  }
+  header form .form-search::placeholder{
+    color: var(--abu-lebih-muda);
+}
+  header form button{
+    position: absolute;
+    left: 0;
+    margin-top: 13px;
+    left: 25px;
+    z-index: 99;
+    border-right: 1px solid var(--abu-muda);
+    padding-right: 5px;
+  }
+  header form button img{
+    width: 30px;
+    height: 30px;
+  }
+
+  .container-about{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container-about::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: linear-gradient(to top, var(--hitam), transparent);
+    width: 100%;
+    height: 200px;
+    z-index: 99999;
+  }
+  .container-about img,
+  .container-about #clouds_1,
+  .container-about #clouds_2{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+  }
+  .container-about #clouds_1{
+    margin-left: 65%;
+    margin-top: 50vh;
+  }
+  .container-about #clouds_2{
+    margin-left: 20%;
+    margin-top: 70px;
+  }
+  .container-about img#bg{
+    transform-origin: top;
+  }
+  .container-about img#man{
+    transform-origin: bottom;
+    margin-top: 30px;
+  }
+  .container-about #text{
+    font-size: 7.5vw;
+    position: relative;
+    color: transparent;
+    -webkit-text-stroke: 5px var(--putih);
+    font-weight: bold;
+    font-family: "Rubik Mono One", monospace;
+    font-weight: 400;
+    font-style: italic;
+    text-shadow: 0 0 3rem var(--biru);
+  }
+  .container-about #clouds_1 img,
+  .container-about #clouds_2 img{
+    width: 200px;
+    height: 200px;
+  }
+  .sec{
+    color: var(--putih);
+    margin: 30px 50px;
+    margin-top: 100px;
+  }
+  .sec h2{
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: var(--biru);
+  }
+  .sec p{
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+  }
+
+
+.container-main-sh{
+  width: 100%;
+  height: 100%;
+  font-family: inherit;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+.container-main-sh .img-sh{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+
+.container-main-h-sh {
+  position: relative;
+  margin-left: 30vw;
+}
+
+.container-main-h-sh .heading-sh {
+  width: 100%;
+  font-size: 12vw;
+  font-weight: 700;
+  color: transparent; /* Agar stroke terlihat */
+  -webkit-text-stroke: 5px var(--putih); /* Garis luar teks */
+  text-align: center;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.container-main-h-sh .heading-sh::before {
+  content: attr(data-text); /* Konten sama dengan teks aslinya */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(206, 8, 206, .2), rgba(0, 96, 224, .8)); /* Gradient dari ungu ke biru */
+  -webkit-background-clip: text; 
+  background-clip: text;
+  color: transparent;
+  z-index: -1; 
+  filter: blur(20px); 
+}
+
+.container-main-sh .container-sh{
+  width: 100%;
+  height: 1200vh;
+  overflow-x: hidden; 
+  overflow-y: hidden; 
+}
+.container-main-sh  .warpper-404{
+  position: absolute;
+  top: 110vh;
+  width: 300vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  will-change: transform;
+}
+.container-main-sh .card{
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  margin-top: 40px;
+}
+
+#card-1{
+  top: 50%;
+  left: 20%;
+}
+#card-2{
+  top: 25%;
+  right: 40%;
+}
+#card-3{
+  top: 45%;
+  left: 60%;
+}
+#card-4{
+  top: 15%; 
+  right: 80%;
+}
+.outro{
+  position: absolute;
+  top: 95vh;
+  width: 90%;
+  height: 100vh;
+  color: var(--putih);
+}
+.outro p{
+  position: absolute;
+  top: 220%;
+  left: 10%;
+  font-size: 33px;
+  font-weight:300;
+  text-align: start;
+  line-height: 2.2;
+  z-index: 9;
+}
+.outro .spiral{
+  position: absolute;
+  top: 210%;
+  right: -30%;
+  height: 1900px;
+}
+.outro .spiral img{
+  position: sticky;
+  top: -200px;
+  rotate: 45deg;
+  width: 600px;
+  z-index: 1;
+}
+

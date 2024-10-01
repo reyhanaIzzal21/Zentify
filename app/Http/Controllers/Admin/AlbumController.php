@@ -39,7 +39,7 @@ class AlbumController extends Controller
         Album::create($validatedData);
 
         // Redirect dengan pesan sukses
-        return redirect()->route('admin.albums.index')->with('success', 'Album created successfully.');
+        return redirect()->route('admin.albums.index')->with('success', 'Album berhasil dibuat.');
     }
 
     public function show(Album $album)
@@ -71,7 +71,7 @@ class AlbumController extends Controller
         $album->update($validatedData);
 
         // Redirect dengan pesan sukses
-        return redirect()->route('admin.albums.index')->with('success', 'Album updated successfully.');
+        return redirect()->route('admin.albums.index')->with('success', 'Album berhasil diperbarui.');
     }
 
     public function destroy(Album $album)

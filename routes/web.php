@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Controller;
@@ -19,6 +20,7 @@ use App\Http\Controllers\Admin\GenreController;
 use App\Http\Middleware\UserMiddleware;
 
 Route::get('/', [HomeController::class, 'welcome'])->name('welcome');
+Route::get('/about', [AboutController::class, 'index'])->name('about');
 
 
 Route::middleware('auth')->group(function () {

@@ -15,8 +15,8 @@
     <x-guest-layout>
         <div class="min-h-screen flex items-center justify-center bg-[var(--hitam)] text-[var(--putih)]">
             <img src="{{ asset('item/3d-headset.png') }}" alt="" class="headset">
-            <img src="{{ asset('item/3d-torus.png') }}" alt="" class="trous">
-            <img src="{{ asset('item/3d-torus.png') }}" alt="" class="trous-two">
+            <img src="{{ asset('item/3d-torus.gif') }}" alt="" class="trous">
+            <img src="{{ asset('item/3d-torus.gif') }}" alt="" class="trous-two">
 
             <!-- Wrapper -->
             <div class="rounded-lg shadow-lg max-w-3xl w-full flex overflow-hidden p-4 container-register">

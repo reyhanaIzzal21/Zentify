@@ -46,35 +46,39 @@
         </div>
 
 
-
-        <div class="songs-container">
-            @if ($songs->isEmpty())
-                <p class="no-song">YAH, Tidak ada lagu yang di temukan nih.</p>
-            @else
-                @foreach ($songs as $song)
-                    <div class="song-card" onclick="playSelectedSong({{ $loop->index }})">
-                        <div class="song-image">
-                            <a href="{{ route('user.songs.show', $song->id) }}" class="text-blue-500">
-                                @if ($song->image_path)
-                                    <img src="{{ asset('storage/' . $song->image_path) }}" alt="{{ $song->title }}">
-                                @else
-                                    <img src="{{ asset('item/default-image.jpg') }}" alt="No Image">
-                                @endif
-                            </a>
-                            <button class="play-pause-btn" id="play-pause-btn-{{ $loop->index }}"
-                                onclick="toggleCardPlayPause(event, {{ $loop->index }})">
-                                <i class="fas fa-play"></i>
-                            </button>
+        <div class="container-main-songs">
+            <div class="songs-container">
+                @if ($songs->isEmpty())
+                    <p class="no-song">YAH, Tidak ada lagu yang di temukan nih.</p>
+                @else
+                    @foreach ($songs as $song)
+                        <div class="song-card" onclick="playSelectedSong({{ $loop->index }})">
+                            <div class="song-image">
+                                <a href="{{ route('user.songs.show', $song->id) }}" class="text-blue-500">
+                                    @if ($song->image_path)
+                                        <img src="{{ asset('storage/' . $song->image_path) }}" alt="{{ $song->title }}">
+                                    @else
+                                        <img src="{{ asset('item/default-image.jpg') }}" alt="No Image">
+                                    @endif
+                                </a>
+                                <button class="play-pause-btn" id="play-pause-btn-{{ $loop->index }}"
+                                    onclick="toggleCardPlayPause(event, {{ $loop->index }})">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                            </div>
+                            <div class="song-details">
+                                <a href="{{ route('user.songs.show', $song->id) }}" class="text-blue-500">
+                                    <h3>{{ $song->title }}</h3>
+                                </a>
+                                <p>By {{ Str::limit($song->artist->name, 25) }}</p>
+                            </div>
                         </div>
-                        <div class="song-details">
-                            <a href="{{ route('user.songs.show', $song->id) }}" class="text-blue-500">
-                                <h3>{{ $song->title }}</h3>
-                            </a>
-                            <p>By {{ Str::limit($song->artist->name, 25) }}</p>
-                        </div>
-                    </div>
-                @endforeach
-            @endif
+                    @endforeach
+                @endif
+            </div>
+            <div class="footer">
+                @include('layouts.partials.footer-user')
+            </div>
         </div>
     </section>
 

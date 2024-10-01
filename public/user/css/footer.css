@@ -1,0 +1,123 @@
+:root {
+    --biru: rgb(0, 96, 224);
+    --hitam: #000005;
+    --abu: #1b1b1b;
+    --putih: #f8f8f8;
+    --abu-muda: #858585;
+    --abu-lebih-muda: #cacaca;
+    --biru-tua: rgb(0, 69, 159);
+  }
+
+  body{
+    background-color: var(--hitam);
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  body footer .container-footer{
+    width: 100%;
+    border-top: 1px solid var(--biru);
+    padding: 15px;
+    margin: 40px 0;
+    z-index: 999999;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .container-footer .content-one h1{
+    font-size: 19px;
+    color: var(--biru);
+    font-weight: 700;
+  }
+  .container-footer .content-one .item{
+    margin-top: 10px;
+    font-size: 15px;
+    color: var(--abu-lebih-muda);
+    display: flex;
+    flex-direction: column;
+  }
+  .container-footer .content-one .item a{
+    text-decoration: none;
+    transition: all 0.3s;
+    margin-bottom: 10px;
+  }
+  .container-footer .content-one .item a:hover{
+    text-decoration: underline;
+    color: var(--putih);
+  }
+  
+  .container-footer .content-two{
+    position: relative;
+    bottom: 20px;
+  }
+
+.parent {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .child {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+    transition: all 0.3s cubic-bezier(0.68, 0.85, 0.265, 1.85);
+    border-radius: 50%;
+    margin: 0 15px;
+    box-shadow:
+      inset 1px 1px 2px var(--putih),
+      0 0 5px #4442;
+      background-color: var(--putih);
+  }
+  
+  .child:hover {
+    background-color: white;
+    background-position:
+      -100px 100px,
+      -100px 100px;
+    transform: rotate3d(0.5, 1, 0, 30deg);
+    transform: perspective(180px) rotateX(60deg) translateY(2px);
+  }
+  
+  .child-1:hover {
+    box-shadow: 0px 10px 10px #1e90ff;
+  }
+  .child-2:hover {
+    box-shadow: 0px 10px 10px #ff00ff;
+  }
+  .child-4:hover {
+    box-shadow: 0px 10px 10px #4267b2;
+  }
+  
+  .parent .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+    font-size: 23px;
+    transition-duration: 0.3s;
+    transition-timing-function: cubic-bezier(0.68, -0.85, 0.265, 1.55);
+  }
+  .parent .button:hover{
+    font-size: 38px;
+  }
+  .child:hover > .button {
+    transform: translate3d(0px, 20px, 30px) perspective(80px) rotateX(-60deg)
+      translateY(2px) translateZ(10px);
+  }
+  footer .text{
+    font-size: 13px;
+    padding: 30px 0;
+    color: var(--abu-muda);
+    text-align: center;
+    border-top: 1px solid var(--abu-muda);
+  }

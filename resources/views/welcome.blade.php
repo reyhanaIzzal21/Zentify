@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{{ asset('user/css/welcome-style.css') }}">
 @section('content')
     <header>
-        <a href="{{ url('/') }}">
+        <a href="{{ url('/songs') }}">
             <img src="{{ asset('item/logo.png') }}" alt="logo Zentify" class="logo">
         </a>
 
@@ -44,33 +44,35 @@
         </div>
     @endif
 
-    <section class="songs-container">
-        @foreach ($songs as $song)
-            <div class="song-card" onclick="playSelectedSong({{ $loop->index }})">
-                <div class="song-image">
-                    <a href="{{ route('user.songs.index') }}" class="text-blue-500">
-                        @if ($song->image_path)
-                            <img src="{{ asset('storage/' . $song->image_path) }}" alt="{{ $song->title }}">
-                        @else
-                            <img src="{{ asset('item/default-image.jpg') }}" alt="No Image">
-                        @endif
+    <section class="container-main-songs">
+        <div class="songs-container">
+            @foreach ($songs as $song)
+                <div class="song-card" onclick="playSelectedSong({{ $loop->index }})">
+                    <div class="song-image">
+                        <a href="{{ route('user.songs.index') }}" class="text-blue-500">
+                            @if ($song->image_path)
+                                <img src="{{ asset('storage/' . $song->image_path) }}" alt="{{ $song->title }}">
+                            @else
+                                <img src="{{ asset('item/default-image.jpg') }}" alt="No Image">
+                            @endif
 
-                        <button class="play-pause-btn" id="play-pause-btn-{{ $loop->index }}"
-                            onclick="toggleCardPlayPause(event, {{ $loop->index }})">
-                            <i class="fas fa-play"></i>
-                        </button>
-                    </a>
+                            <button class="play-pause-btn" id="play-pause-btn-{{ $loop->index }}"
+                                onclick="toggleCardPlayPause(event, {{ $loop->index }})">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </a>
+                    </div>
+                    <div class="song-details">
+                        <a href="{{ route('user.songs.index') }}" class="text-blue-500">
+                            <h3>{{ $song->title }}</h3>
+                        </a>
+                        <p>By {{ $song->artist->name }}</p>
+                    </div>
                 </div>
-                <div class="song-details">
-                    <a href="{{ route('user.songs.index') }}" class="text-blue-500">
-                        <h3>{{ $song->title }}</h3>
-                    </a>
-                    <p>By {{ $song->artist->name }}</p>
-                </div>
-            </div>
-        @endforeach
-
-
+            @endforeach
+        </div>
+        <div class="footer">
+            @include('layouts.partials.footer-user')
+        </div>
     </section>
-
 @endsection
