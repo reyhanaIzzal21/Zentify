@@ -16,7 +16,7 @@ body{
     font-family: "Poppins", sans-serif;
 }
 body .container{
-    margin-top: 100px;
+    margin: 100px auto;
     position: relative;
 }
 .container .container-header{
@@ -83,6 +83,10 @@ body .container{
     text-decoration: underline;
 }
 /* Table styling */
+.playlists-container{
+    position: relative;
+    width: 100vw;
+}
 .playlist-table {
     width: 100%;
     border-collapse: collapse;

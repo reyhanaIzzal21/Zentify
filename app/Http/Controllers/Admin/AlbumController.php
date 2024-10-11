@@ -17,7 +17,7 @@ class AlbumController extends Controller
 
     public function create()
     {
-        $artists = Artist::all(); // Mengambil semua data artist
+        $artists = Artist::all(); 
         return view('admin.albums.create', compact('artists'));
     }
 
