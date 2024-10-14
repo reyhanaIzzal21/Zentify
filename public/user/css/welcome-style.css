@@ -38,7 +38,7 @@
     right: 0;
     left: 0;
     top: 0;
-    background-color: var(--hitam);
+    background-color: transparent;
   }
   header .logo{
     width: 100px;
@@ -165,7 +165,8 @@
     position: fixed;
     width: 98.5%;
     top: 81;
-    bottom: 0;
+    bottom: 85;
+    right: 0;
     overflow-y: auto; 
     overflow-x: hidden;
     max-height: calc(100vh - 100px); 
@@ -178,25 +179,6 @@
     justify-content: center;
     width: 100%;
 }
-
-/* .songs-container {
-    margin: 0 10px 10px 10px;
-    padding: 30px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    background-color: var(--abu);
-    border-radius: 15px;
-    position: fixed;
-    right: 0;
-    left: 0;
-    top: 98;
-    bottom: 0;
-    overflow-y: auto; 
-    overflow-x: hidden;
-    max-height: calc(100vh - 100px); 
-} */
 
 .song-card {
     padding: 10px 10px 0 10px;
@@ -267,4 +249,136 @@
 }
 .songs-container footer{
   width: 100%;
+}
+
+.audio-control{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+}
+.audio-control .audio-info{
+  display: flex;
+  justify-content: start;
+}
+.audio-control .audio-info img{
+  width: 55px;
+  height: 55px;
+  aspect-ratio: 1/1;
+  margin-right: 8px;
+  border-radius: 10px;
+}
+.audio-control .audio-info .song-details h4{
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--putih);
+}
+.audio-control .audio-info .song-details p{
+  font-size: 13px;
+  color: var(--abu-muda);
+}
+
+.audio-control .audio-player{
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.audio-control .audio-player .btn-ap{
+  display: flex;
+  gap: 25px;
+  margin-bottom: 10px;
+}
+.audio-control .audio-player .btn-ap #prev-btn,
+.audio-control .audio-player .btn-ap #next-btn{
+  color: #d1d1d1;
+}
+.audio-control .audio-player .btn-ap #prev-btn:hover,
+.audio-control .audio-player .btn-ap #next-btn:hover{
+  color: #ffffff;
+}
+.audio-control .audio-player .btn-ap #play-pause-btn{
+  color: var(--abu);
+  background-color: var(--putih);
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 14px;
+}
+.audio-control .audio-player .progress-bar{
+  display: flex;
+  align-items: center;
+  color: var(--putih);
+}
+
+
+.styled-range {
+  appearance: none;
+  width: 300px;
+  height: 4px;
+  background: var(--putih);
+  border-radius: 4px;
+  outline: none;
+  margin: 0 10px;
+}
+
+.styled-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  background: var(--biru);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.styled-range::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  background: var(--biru);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.audio-control .audio-volume{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.audio-control .audio-volume .fas.fa-volume-up{
+  font-size: 14px;
+  color: var(--putih);
+}
+.volume-slider {
+  margin-left: 10px;
+  appearance: none;
+  width: 100px;
+  height: 4px;
+  background: var(--putih);
+  border-radius: 5px;
+  outline: none;
+}
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  background: var(--biru);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.volume-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  background: var(--biru);
+  border-radius: 50%;
+  cursor: pointer;
 }

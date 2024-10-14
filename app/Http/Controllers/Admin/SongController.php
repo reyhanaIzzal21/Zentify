@@ -14,10 +14,8 @@ class SongController extends Controller
 {
     public function index(Request $request)
     {
-        // Mengambil input pencarian dari request
         $search = $request->input('search');
 
-        // Mencari lagu berdasarkan judul, artis, album, atau genre
         $songs = Song::with(['artist', 'album', 'genre'])
             ->whereHas('artist', function ($query) use ($search) {
                 $query->where('name', 'like', '%' . $search . '%');
@@ -44,7 +42,6 @@ class SongController extends Controller
 
     public function store(Request $request)
     {
-        // Validasi input
         $request->validate(
             [
                 'title' => 'required|string|max:255',
@@ -52,7 +49,7 @@ class SongController extends Controller
                 'album_id' => 'required|nullable|integer',
                 'genre_id' => 'required|integer',
                 'file_path' => 'required|file|mimes:mp3,wav|max:1024000',
-                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:20000',
             ],
             [
                 'title.required' => 'Judul lagu wajib diisi.',
@@ -60,6 +57,10 @@ class SongController extends Controller
                 'album_id.required' => 'Album wajib dipilih.',
                 'genre_id.required' => 'Genre wajib dipilih.',
                 'file_path.required' => 'File lagu wajib diisi.',
+                'file_path.mimes' => 'File harus berupa format mp3 atau wav',
+                'image.mimes' => 'Format gambar harus berupa jpeg, png, jpg, atau gif.',
+                'image.image' => 'Gambar tidak valid.',
+                'image.max' => 'Gambar tidak boleh lebih besar dari 2MB.',
             ]
         );
 
@@ -105,13 +106,17 @@ class SongController extends Controller
                 'album_id' => 'required|nullable|integer',
                 'genre_id' => 'required|integer',
                 'file_path' => 'nullable|file|mimes:mp3,wav|max:1024000',
-                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:20000',
             ],
             [
                 'title.required' => 'Judul lagu wajib diisi.',
                 'artist_id.required' => 'Nama Artis wajib diisi.',
                 'album_id.required' => 'Album wajib dipilih.',
                 'genre_id.required' => 'Genre wajib dipilih.',
+                'file_path.mimes' => 'Format file harus berupa mp3 atau wav.',
+                'image.mimes' => 'Format gambar harus berupa jpeg, png, jpg, atau gif.',
+                'image.image' => 'Gambar tidak valid.',
+                'image.max' => 'Gambar tidak boleh lebih besar dari 2MB.',
             ]
         );
 

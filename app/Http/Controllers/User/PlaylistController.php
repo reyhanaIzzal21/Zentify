@@ -39,12 +39,14 @@ class PlaylistController extends Controller
         $request->validate(
             [
                 'name' => 'required|string|max:255',
-                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:200000',
                 'songs' => 'nullable|array',
                 'songs.*' => 'exists:songs,id',
             ],
             [
                 'name.required' => 'Nama playlist wajib diisi.',
+                'image.mimes' => 'Format gambar harus berupa jpeg, png, jpg, atau gif.',
+                'image.image' => 'Gambar tidak valid.',
             ]
         );
 
@@ -84,12 +86,14 @@ class PlaylistController extends Controller
         $request->validate(
             [
                 'name' => 'required|string|max:255',
-                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:200000',
                 'songs' => 'nullable|array',
                 'songs.*' => 'exists:songs,id',
             ],
             [
                 'name.required' => 'Nama playlist wajib diisi.',
+                'image.mimes' => 'Format gambar harus berupa jpeg, png, jpg, atau gif.',
+                'image.image' => 'Gambar tidak valid.',
             ]
         );
 

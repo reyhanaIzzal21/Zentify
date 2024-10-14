@@ -67,7 +67,7 @@
                                 </button>
                             </div>
                             <div class="song-details">
-                                <a href="{{ route('user.songs.show', $song->id) }}" class="text-blue-500">
+                                <a href="{{ route('user.songs.show', $song->id) }}" class="text-blue-500 hover:underline">
                                     <h3>{{ $song->title }}</h3>
                                 </a>
                                 <p>By {{ Str::limit($song->artist->name, 25) }}</p>
@@ -85,13 +85,13 @@
     <!-- Kontrol Audio -->
     <div class="audio-control">
         <div class="audio-info">
-            {{-- <a href="{{ route('user.songs.show', $song->id) }}" class="text-blue-500"> --}}
+            <a href="{{ route('user.songs.show', $song->id) }}" class="text-blue-500">
             <img id="audio-thumbnail" src="" alt="Song Thumbnail" class="thumbnail">
-            {{-- </a> --}}
+            </a>
             <div class="song-details">
-                {{-- <a href="{{ route('user.songs.show', $song->id) }}" class="text-blue-500"> --}}
+                <a href="{{ route('user.songs.show', $song->id) }}" class="text-blue-500">
                 <h4 id="audio-title">No Song Playing</h4>
-                {{-- </a> --}}
+                </a>
                 <p id="audio-artist">Unknown Artist</p>
             </div>
         </div>

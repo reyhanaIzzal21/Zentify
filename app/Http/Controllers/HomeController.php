@@ -7,13 +7,26 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    // Fungsi untuk menampilkan halaman welcome
-    public function welcome()
+    public function index(Request $request)
     {
-        // Ambil semua lagu dari database
-        $songs = Song::all();
+        $query = Song::with('artist');
 
-        // Kirim data lagu ke view welcome.blade.php
+        if (request()->has('search')) {
+            $search = request()->get('search');
+            $query->where('title', 'like', '%' . $search . '%')
+                ->orWhereHas('artist', function ($q) use ($search) {
+                    $q->where('name', 'like', '%' . $search . '%');
+                });
+        }
+
+        $songs = $query->get();
+
         return view('welcome', compact('songs'));
+    }
+
+    public function show($id)
+    {
+        $song = Song::findOrFail($id);
+        return view('showSong', compact('song'));
     }
 }

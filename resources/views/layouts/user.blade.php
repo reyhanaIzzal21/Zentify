@@ -42,7 +42,7 @@
         }
 
         header {
-            background-color: rgba(0, 0, 5, .9);
+            background-color: transparent;
             backdrop-filter: blur(10px);
             display: flex;
             justify-content: space-between;

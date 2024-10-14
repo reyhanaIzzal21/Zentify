@@ -19,9 +19,8 @@ class SongController extends Controller
 
     public function index(Request $request)
     {
-        $query = Song::with('artist'); // Ambil data lagu dengan relasi artist
+        $query = Song::with('artist'); 
 
-        // Jika ada parameter 'search', tambahkan filter untuk pencarian
         if ($request->has('search')) {
             $search = $request->get('search');
             $query->where('title', 'like', '%' . $search . '%')
@@ -30,30 +29,16 @@ class SongController extends Controller
                 });
         }
 
-        // Ambil semua lagu beserta artisnya
         $songs = $query->get();
 
-        // Ambil semua playlist yang dimiliki user
         $playlists = Playlist::where('user_id', Auth::id())->get();
 
         return view('user.songs.index', compact('songs', 'playlists'));
     }
 
-
-
-
-
-
-
-    public function show(Song $song)
+    public function showSong($id)
     {
-        // Memuat relasi album, artist, dan genre
-        $song->load(['album', 'artist', 'genre']);
-
+        $song = Song::findOrFail($id);
         return view('user.songs.show', compact('song'));
     }
-
-
-    // Metode create, store, edit, update, destroy mungkin tidak diperlukan untuk SongController di sisi user.
-    // Pengguna biasanya hanya melihat daftar lagu atau menambahkannya ke playlist mereka.
 }
