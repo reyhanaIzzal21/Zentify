@@ -80,6 +80,9 @@ class ArtistController extends Controller
             [
                 'name.required' => 'Nama artis wajib diisi.',
                 'photo.required' => 'Foto Artis wajib diisi.',
+                'photo.image' => 'Gambar tidak valid.',
+                'photo.max' => 'Gambar tidak boleh lebih besar dari 2MB.',
+                'photo.mimes' => 'Format gambar harus berupa jpeg, png, jpg, atau gif.',
             ]
         );
 
