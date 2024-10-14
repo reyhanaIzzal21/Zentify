@@ -32,6 +32,7 @@ class UserController extends Controller
             [
                 'name.required' => 'Nama wajib diisi.',
                 'email.unique' => 'Nama email sudah digunakan oleh user lain.',
+                'email.required' => 'Email wajib diisi.',
             ]
         );
 
