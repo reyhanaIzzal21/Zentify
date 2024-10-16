@@ -82,13 +82,9 @@
     <!-- Kontrol Audio -->
     <div class="audio-control">
         <div class="audio-info">
-            <a href="{{ route('showSong', $song->id) }}" class="text-blue-500">
-                <img id="audio-thumbnail" src="" alt="Song Thumbnail" class="thumbnail">
-            </a>
+            <img id="audio-thumbnail" src="" alt="Song Thumbnail" class="thumbnail">
             <div class="song-details">
-                <a href="{{ route('showSong', $song->id) }}" class="text-blue-500">
-                    <h4 id="audio-title">No Song Playing</h4>
-                </a>
+                <h4 id="audio-title">No Song Playing</h4>
                 <p id="audio-artist">Unknown Artist</p>
             </div>
         </div>
