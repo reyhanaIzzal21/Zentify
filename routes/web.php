@@ -43,7 +43,7 @@ Route::middleware(['auth', 'userMiddleware'])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // route playlist
-    Route::get('/playlists', [App\Http\Controllers\User\PlaylistController::class, 'index'])->name('user.playlists.index');
+    Route::get('/playlists', [PlaylistController::class, 'index'])->name('user.playlists.index');
     Route::get('playlists/create', [PlaylistController::class, 'create'])->name('user.playlists.create');
     Route::post('playlists', [PlaylistController::class, 'store'])->name('user.playlists.store');
     Route::get('/playlists/{playlist}', [PlaylistController::class, 'show'])->name('user.playlists.show');
