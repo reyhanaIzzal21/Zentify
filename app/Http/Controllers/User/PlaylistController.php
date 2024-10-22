@@ -15,14 +15,12 @@ class PlaylistController extends Controller
     {
         $query = Playlist::where('user_id', Auth::id());
 
-        // Jika ada input 'search', tambahkan filter pencarian
         if ($request->has('search')) {
             $search = $request->input('search');
             $query->where('name', 'like', '%' . $search . '%');
         }
 
-        // Ambil semua playlist sesuai user_id dan pencarian (jika ada)
-        $playlists = $query->get();
+        $playlists = $query->latest()->get();
 
         return view('user.playlists.index', compact('playlists'));
     }

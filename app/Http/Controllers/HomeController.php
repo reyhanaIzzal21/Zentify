@@ -19,7 +19,7 @@ class HomeController extends Controller
                 });
         }
 
-        $songs = $query->get();
+        $songs = $query->latest()->get();
 
         return view('welcome', compact('songs'));
     }

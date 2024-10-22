@@ -19,7 +19,7 @@ class SongController extends Controller
 
     public function index(Request $request)
     {
-        $query = Song::with('artist'); 
+        $query = Song::with('artist');
 
         if ($request->has('search')) {
             $search = $request->get('search');
@@ -29,9 +29,9 @@ class SongController extends Controller
                 });
         }
 
-        $songs = $query->get();
+        $songs = $query->latest()->get();
 
-        $playlists = Playlist::where('user_id', Auth::id())->get();
+        $playlists = Playlist::where('user_id', Auth::id())->latest()->get();
 
         return view('user.songs.index', compact('songs', 'playlists'));
     }
