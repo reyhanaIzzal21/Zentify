@@ -127,7 +127,6 @@
 
 <body>
     <div class="main-content">
-        {{-- @include('layouts.navigation') --}}
         <header>
             <div class="item-one">
                 <a href="{{ url('songs') }}">
