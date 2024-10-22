@@ -86,18 +86,21 @@ body .search-bar{
     left: 0;
     top: 78.5;
     bottom: 85;
-    overflow-y: auto; 
+    overflow-y: auto;
     overflow-x: hidden;
-    max-height: calc(100vh - 100px); 
+    max-height: calc(100vh - 100px);
 }
 .container-ps .sidebar .item.one{
+    background-color: var(--abu);
+    position: fixed;
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: 20%;
     height: 50px;
     animation: itemone 2s infinite ;
+    z-index: 999;
 }
 @keyframes itemone{
     0%{
@@ -242,9 +245,9 @@ body .search-bar{
     right: 0;
     top: 78.5;
     bottom: 85;
-    overflow-y: auto; 
+    overflow-y: auto;
     overflow-x: hidden;
-    max-height: calc(100vh - 100px); 
+    max-height: calc(100vh - 100px);
     z-index: 3;
 }
 .songs-container {
