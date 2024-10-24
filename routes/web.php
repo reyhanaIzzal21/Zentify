@@ -42,14 +42,7 @@ Route::middleware(['auth', 'userMiddleware'])->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    // route playlist
-    Route::get('/playlists', [PlaylistController::class, 'index'])->name('user.playlists.index');
-    Route::get('playlists/create', [PlaylistController::class, 'create'])->name('user.playlists.create');
-    Route::post('playlists', [PlaylistController::class, 'store'])->name('user.playlists.store');
-    Route::get('/playlists/{playlist}', [PlaylistController::class, 'show'])->name('user.playlists.show');
-    Route::get('playlists/{playlist}/edit', [PlaylistController::class, 'edit'])->name('user.playlists.edit');
-    Route::put('playlists/{playlist}', [PlaylistController::class, 'update'])->name('user.playlists.update');
-    Route::delete('playlists/{playlist}', [PlaylistController::class, 'destroy'])->name('user.playlists.destroy');
+    Route::resource('playlists', PlaylistController::class)->names('user.playlists');
 });
 
 
