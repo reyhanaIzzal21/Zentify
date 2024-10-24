@@ -6,7 +6,6 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Controller;
 
 // user
-use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\PlaylistController;
 use App\Http\Controllers\HomeController;
 
@@ -17,6 +16,7 @@ use App\Http\Controllers\Admin\ArtistController;
 use App\Http\Controllers\Admin\SongController;
 use App\Http\Controllers\Admin\AlbumController;
 use App\Http\Controllers\Admin\GenreController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Middleware\UserMiddleware;
 
 Route::get('/', [HomeController::class, 'index'])->name('welcome');
@@ -59,7 +59,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'adminMiddleware'])-
 
     Route::resource('genres', GenreController::class);
 
-    Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
+    Route::resource('users', UserController::class);
 });
 
 Route::get('/{id}', [HomeController::class, 'show'])->name('showSong');
