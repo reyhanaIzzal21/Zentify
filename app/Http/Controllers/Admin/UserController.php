@@ -22,7 +22,6 @@ class UserController extends Controller
 
     public function update(Request $request, User $user)
     {
-        // Validasi data
         $validatedData = $request->validate(
             [
                 'name' => 'required|string|max:255',
@@ -36,13 +35,11 @@ class UserController extends Controller
             ]
         );
 
-        // Memperbarui data user
         $user->name = $validatedData['name'];
         $user->email = $validatedData['email'];
         $user->usertype = $validatedData['role'];
         $user->save();
 
-        // Redirect dengan pesan sukses
         return redirect()->route('admin.users.index')->with('success', 'Berhasil mengupdate user.');
     }
 

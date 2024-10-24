@@ -25,7 +25,6 @@ class ArtistController extends Controller
 
     public function store(Request $request)
     {
-        // Validasi data
         $validatedData = $request->validate(
             [
                 'name' => 'required|string|max:255',
@@ -41,10 +40,8 @@ class ArtistController extends Controller
             ]
         );
 
-        // Menyiapkan data untuk disimpan
         $data = $validatedData;
 
-        // Menyimpan file foto
         if ($request->hasFile('photo')) {
             $file = $request->file('photo');
             $filename = time() . '.' . $file->getClientOriginalExtension();
@@ -52,10 +49,8 @@ class ArtistController extends Controller
             $data['photo'] = $filename;
         }
 
-        // Membuat artis baru
         Artist::create($data);
 
-        // Redirect dengan pesan sukses
         return redirect()->route('admin.artists.index')->with('success', 'Artis Berhasih Ditambahkan.');
     }
 
@@ -105,19 +100,15 @@ class ArtistController extends Controller
 
     public function destroy(Artist $artist)
     {
-        // Cek apakah artis sedang digunakan di tabel songs
         if ($artist->songs()->count() > 0) {
-            // Jika artis terkait dengan satu atau lebih lagu, tampilkan pesan kesalahan
             return redirect()->route('admin.artists.index')
                 ->with('error', 'Artis ini tidak bisa dihapus karena ada lagu yang terkait.');
         }
 
-        // Hapus foto jika ada
         if ($artist->photo && Storage::exists('public/photos/' . $artist->photo)) {
             Storage::delete('public/photos/' . $artist->photo);
         }
 
-        // Hapus artis
         $artist->delete();
 
         return redirect()->route('admin.artists.index')->with('success', 'Data Artis Berhasil Dihapus.');

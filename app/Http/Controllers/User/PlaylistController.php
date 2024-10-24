@@ -28,7 +28,7 @@ class PlaylistController extends Controller
 
     public function create()
     {
-        $songs = Song::all(); // Mengambil semua lagu
+        $songs = Song::all();
         return view('user.playlists.create', compact('songs'));
     }
 
@@ -52,7 +52,6 @@ class PlaylistController extends Controller
         $playlist->name = $request->input('name');
         $playlist->user_id = Auth::id();
 
-        // Upload gambar
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('playlists', 'public');
             $playlist->image_path = $imagePath;
@@ -60,7 +59,6 @@ class PlaylistController extends Controller
 
         $playlist->save();
 
-        // Menambahkan lagu-lagu ke playlist jika ada
         if ($request->has('songs')) {
             $playlist->songs()->sync($request->songs);
         }
@@ -70,12 +68,11 @@ class PlaylistController extends Controller
 
     public function edit(Playlist $playlist)
     {
-        // Memastikan hanya user pemilik playlist yang bisa mengedit
         if ($playlist->user_id !== Auth::id()) {
             return redirect()->route('user.playlists.index')->with('error', 'Unauthorized action');
         }
 
-        $songs = Song::all(); // Mengambil semua lagu
+        $songs = Song::all();
         return view('user.playlists.edit', compact('playlist', 'songs'));
     }
 
@@ -97,9 +94,7 @@ class PlaylistController extends Controller
 
         $playlist->name = $request->input('name');
 
-        // Upload gambar
         if ($request->hasFile('image')) {
-            // Hapus gambar lama jika ada
             if ($playlist->image_path) {
                 Storage::disk('public')->delete($playlist->image_path);
             }
@@ -110,11 +105,10 @@ class PlaylistController extends Controller
 
         $playlist->save();
 
-        // Update lagu-lagu di playlist
         if ($request->has('songs')) {
             $playlist->songs()->sync($request->songs);
         } else {
-            $playlist->songs()->sync([]); // Jika tidak ada lagu yang dipilih, hapus semua lagu dari playlist
+            $playlist->songs()->sync([]);
         }
 
         return redirect()->route('user.playlists.show', $playlist->id)->with('success', 'Playlist Berhasil Di Perbarui');
@@ -122,12 +116,10 @@ class PlaylistController extends Controller
 
     public function destroy(Playlist $playlist)
     {
-        // Memastikan hanya user pemilik playlist yang bisa menghapus
         if ($playlist->user_id !== Auth::id()) {
             return redirect()->route('user.playlists.index')->with('error', 'Unauthorized action');
         }
 
-        // Hapus gambar jika ada
         if ($playlist->image_path) {
             Storage::disk('public')->delete($playlist->image_path);
         }
@@ -139,7 +131,6 @@ class PlaylistController extends Controller
 
     public function show(Playlist $playlist)
     {
-        // hanya user pemilik playlist yang bisa melihat
         if ($playlist->user_id !== Auth::id()) {
             return redirect()->route('user.playlists.index')->with('error', 'Unauthorized action');
         }

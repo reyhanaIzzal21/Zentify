@@ -31,10 +31,8 @@ class GenreController extends Controller
             ]
         );
 
-        // Menyimpan genre
         Genre::create($validatedData);
 
-        // Redirect dengan pesan sukses
         return redirect()->route('admin.genres.index')->with('success', 'Berhasil membuat genre baru.');
     }
 
@@ -50,7 +48,6 @@ class GenreController extends Controller
 
     public function update(Request $request, Genre $genre)
     {
-        // Validasi data
         $validatedData = $request->validate(
             [
                 'name' => 'required|string|max:255|unique:genres,name,' . $genre->id,
@@ -61,18 +58,14 @@ class GenreController extends Controller
             ]
         );
 
-        // Memperbarui genre
         $genre->update($validatedData);
 
-        // Redirect dengan pesan sukses
         return redirect()->route('admin.genres.index')->with('success', 'Berhasil mengedit nama genre.');
     }
 
     public function destroy(Genre $genre)
     {
-        // Cek apakah artis sedang digunakan di tabel songs
         if ($genre->songs()->count() > 0) {
-            // Jika artis terkait dengan satu atau lebih lagu, tampilkan pesan kesalahan
             return redirect()->route('admin.genres.index')
                 ->with('error', 'Genre ini tidak bisa dihapus karena ada lagu yang terkait.');
         }

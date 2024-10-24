@@ -17,13 +17,12 @@ class AlbumController extends Controller
 
     public function create()
     {
-        $artists = Artist::all(); 
+        $artists = Artist::all();
         return view('admin.albums.create', compact('artists'));
     }
 
     public function store(Request $request)
     {
-        // Validasi data
         $validatedData = $request->validate(
             [
                 'title' => 'required|string|max:255',
@@ -35,10 +34,8 @@ class AlbumController extends Controller
             ]
         );
 
-        // Menyimpan album
         Album::create($validatedData);
 
-        // Redirect dengan pesan sukses
         return redirect()->route('admin.albums.index')->with('success', 'Album berhasil dibuat.');
     }
 
@@ -49,13 +46,12 @@ class AlbumController extends Controller
 
     public function edit(Album $album)
     {
-        $artists = Artist::all(); // Mengambil semua data artist untuk view edit
+        $artists = Artist::all();
         return view('admin.albums.edit', compact('album', 'artists'));
     }
 
     public function update(Request $request, Album $album)
     {
-        // Validasi data
         $validatedData = $request->validate(
             [
                 'title' => 'required|string|max:255',
@@ -67,22 +63,17 @@ class AlbumController extends Controller
             ]
         );
 
-        // Memperbarui album
         $album->update($validatedData);
 
-        // Redirect dengan pesan sukses
         return redirect()->route('admin.albums.index')->with('success', 'Album berhasil diperbarui.');
     }
 
     public function destroy(Album $album)
     {
-        // Periksa apakah album memiliki lagu yang terkait
         if ($album->songs()->count() > 0) {
-            // Jika ada lagu yang terkait, tidak bisa dihapus
             return redirect()->route('admin.albums.index')->with('error', 'Album ini tidak bisa dihapus karena ada lagu yang terkait.');
         }
 
-        // Jika tidak ada lagu yang terkait, hapus album
         $album->delete();
 
         return redirect()->route('admin.albums.index')->with('success', 'Album berhasil dihapus.');
