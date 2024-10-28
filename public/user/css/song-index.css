@@ -10,7 +10,7 @@
 
   ::-webkit-scrollbar{
     height: .1rem;
-    width: .5rem;
+    width: .3rem;
 }
 ::-webkit-scrollbar-track{
     background-color: transparent;
@@ -209,8 +209,8 @@ body .search-bar{
     padding: 0;
     position: absolute;
     top: 90;
-    left: 15;
-    right: 15;
+    left: 20;
+    right: 20;
     transition: .3s;
 }
 .container-ps .sidebar .playlist-list .playlist-item:hover{
