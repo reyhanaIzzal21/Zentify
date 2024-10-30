@@ -30,7 +30,7 @@
                 </div>
             </div>
             <ul class="playlist-list">
-                @foreach ($playlists as $playlist)
+                @forelse ($playlists as $playlist)
                     <li class="playlist-item">
                         <a href="{{ route('user.playlists.show', $playlist->id) }}">
                             @if ($playlist->image_path)
@@ -41,7 +41,11 @@
                             <p>Playlist . {{ $playlist->name }}</p>
                         </a>
                     </li>
-                @endforeach
+                @empty
+                    <p>Anda belum memiliki playlist, <a href="{{ 'user.playlists.create' }}" class="hover:underline">buat
+                            playlist pertama
+                            yuk...</a></p>
+                @endforelse
             </ul>
         </div>
 
@@ -49,9 +53,9 @@
         <div class="container-main-songs">
             <div class="songs-container">
                 @if ($songs->isEmpty())
-                    <p class="no-song">YAH, Tidak ada lagu yang di temukan nih.</p>
+                    <p class="text-gray-200">Yah lagu yang anda cari tidak ditemukan...</p>
                 @else
-                    @foreach ($songs as $song)
+                    @forelse ($songs as $song)
                         <div class="song-card" onclick="playSelectedSong({{ $loop->index }})">
                             <div class="song-image">
                                 <a href="{{ route('user.songs.show', $song->id) }}" class="text-blue-500">
@@ -73,7 +77,9 @@
                                 <p>By {{ Str::limit($song->artist->name, 25) }}</p>
                             </div>
                         </div>
-                    @endforeach
+                    @empty
+                        <p class="text-center text-gray-500">tidak ada lagu di sini...</p>
+                    @endforelse
                 @endif
             </div>
             <div class="footer">
@@ -118,191 +124,191 @@
     <!-- Elemen Audio -->
     <audio id="audio-player"></audio>
 
-@section('scripts')
-    <script>
-        let audioPlayer = document.getElementById('audio-player');
-        let playPauseBtn = document.getElementById('play-pause-btn');
-        let progressBar = document.getElementById('progress');
-        let currentTimeDisplay = document.getElementById('current-time');
-        let durationTimeDisplay = document.getElementById('duration-time');
-        let volumeControl = document.getElementById('volume-control');
-        let muteBtn = document.getElementById('mute-btn');
+    @section('scripts')
+        <script>
+            let audioPlayer = document.getElementById('audio-player');
+            let playPauseBtn = document.getElementById('play-pause-btn');
+            let progressBar = document.getElementById('progress');
+            let currentTimeDisplay = document.getElementById('current-time');
+            let durationTimeDisplay = document.getElementById('duration-time');
+            let volumeControl = document.getElementById('volume-control');
+            let muteBtn = document.getElementById('mute-btn');
 
-        let currentSongIndex = 0;
-        let isPlaying = false;
-        let isSeeking = false; // Variabel isSeeking ditambahkan
-        let songs = @json($songs);
+            let currentSongIndex = 0;
+            let isPlaying = false;
+            let isSeeking = false; // Variabel isSeeking ditambahkan
+            let songs = @json($songs);
 
-        // Muat lagu yang dipilih berdasarkan indeks
-        function loadSong(songIndex) {
-            let song = songs[songIndex];
-            audioPlayer.src = "{{ asset('storage') }}/" + song.file_path;
-            document.getElementById('audio-title').textContent = song.title;
-            document.getElementById('audio-artist').textContent = song.artist.name;
-            document.getElementById('audio-thumbnail').src = "{{ asset('storage') }}/" + song.image_path;
+            // Muat lagu yang dipilih berdasarkan indeks
+            function loadSong(songIndex) {
+                let song = songs[songIndex];
+                audioPlayer.src = "{{ asset('storage') }}/" + song.file_path;
+                document.getElementById('audio-title').textContent = song.title;
+                document.getElementById('audio-artist').textContent = song.artist.name;
+                document.getElementById('audio-thumbnail').src = "{{ asset('storage') }}/" + song.image_path;
 
-            audioPlayer.onloadedmetadata = function() {
-                progressBar.max = Math.floor(audioPlayer.duration);
-                durationTimeDisplay.textContent = formatTime(audioPlayer.duration);
-            };
-        }
-
-        function playSelectedSong(index) {
-            if (currentSongIndex !== index) {
-                resetCardButtons();
-            }
-            currentSongIndex = index;
-            loadSong(currentSongIndex);
-            togglePlayPause();
-        }
-
-        function togglePlayPause() {
-            if (isPlaying) {
-                audioPlayer.pause();
-                updatePlayPauseButtons('play');
-            } else {
-                audioPlayer.play();
-                updatePlayPauseButtons('pause');
-            }
-            isPlaying = !isPlaying;
-        }
-
-        function updatePlayPauseButtons(action) {
-            if (action === 'play') {
-                playPauseBtn.querySelector('i').classList.remove('fa-pause');
-                playPauseBtn.querySelector('i').classList.add('fa-play');
-            } else {
-                playPauseBtn.querySelector('i').classList.remove('fa-play');
-                playPauseBtn.querySelector('i').classList.add('fa-pause');
+                audioPlayer.onloadedmetadata = function() {
+                    progressBar.max = Math.floor(audioPlayer.duration);
+                    durationTimeDisplay.textContent = formatTime(audioPlayer.duration);
+                };
             }
 
-            resetCardButtons();
-
-            let cardButton = document.getElementById('play-pause-btn-' + currentSongIndex);
-            if (action === 'play') {
-                cardButton.querySelector('i').classList.remove('fa-pause');
-                cardButton.querySelector('i').classList.add('fa-play');
-            } else {
-                cardButton.querySelector('i').classList.remove('fa-play');
-                cardButton.querySelector('i').classList.add('fa-pause');
-            }
-        }
-
-        function resetCardButtons() {
-            // Reset semua tombol card audio ke status play
-            document.querySelectorAll('.play-pause-btn i').forEach(function(icon) {
-                icon.classList.remove('fa-pause');
-                icon.classList.add('fa-play');
-            });
-        }
-
-        function toggleCardPlayPause(event, index) {
-            event.stopPropagation();
-            if (currentSongIndex !== index) {
-                resetCardButtons();
+            function playSelectedSong(index) {
+                if (currentSongIndex !== index) {
+                    resetCardButtons();
+                }
                 currentSongIndex = index;
                 loadSong(currentSongIndex);
-            }
-            togglePlayPause();
-        }
-
-        // Event listener untuk progress bar
-        audioPlayer.addEventListener('timeupdate', function() {
-            if (!isSeeking) { // Update hanya jika tidak sedang seek
-                progressBar.value = Math.floor(audioPlayer.currentTime);
-                currentTimeDisplay.textContent = formatTime(audioPlayer.currentTime);
-            }
-        });
-
-        // Menandakan user sedang menggeser progress bar
-        progressBar.addEventListener('mousedown', function() {
-            isSeeking = true; // Menandakan sedang seek
-        });
-
-        // Update waktu saat sedang menggeser progress bar
-        progressBar.addEventListener('input', function() {
-            let seekTime = progressBar.value;
-            currentTimeDisplay.textContent = formatTime(seekTime); // Update tampilan waktu saat di-drag
-        });
-
-        // Update waktu audio player saat progress bar dilepas
-        progressBar.addEventListener('mouseup', function() {
-            isSeeking = false; // Selesai seek
-            audioPlayer.currentTime = progressBar.value; // Update waktu audio player
-        });
-
-
-        // Kontrol volume
-        volumeControl.addEventListener('input', function() {
-            audioPlayer.volume = volumeControl.value;
-        });
-
-        // Mute / Unmute audio
-        muteBtn.addEventListener('click', function() {
-            if (audioPlayer.muted) {
-                audioPlayer.muted = false;
-                muteBtn.querySelector('i').classList.remove('fa-volume-mute');
-                muteBtn.querySelector('i').classList.add('fa-volume-up');
-            } else {
-                audioPlayer.muted = true;
-                muteBtn.querySelector('i').classList.remove('fa-volume-up');
-                muteBtn.querySelector('i').classList.add('fa-volume-mute');
-            }
-        });
-
-        function formatTime(seconds) {
-            let minutes = Math.floor(seconds / 60);
-            let secs = Math.floor(seconds % 60);
-            if (secs < 10) secs = '0' + secs;
-            return minutes + ":" + secs;
-        }
-
-        audioPlayer.onended = function() {
-            // Reset tombol card sebelumnya
-            resetCardButtons();
-
-            // Pindah ke lagu selanjutnya
-            currentSongIndex++;
-            if (currentSongIndex >= songs.length) {
-                currentSongIndex = 0; // Jika sudah sampai akhir playlist, kembali ke awal
+                togglePlayPause();
             }
 
-            loadSong(currentSongIndex); // Load lagu berikutnya
-            audioPlayer.play(); // Langsung putar lagu berikutnya
-            updatePlayPauseButtons('pause'); // Update tampilan tombol
-        };
-
-        // Tombol untuk lagu sebelumnya
-        document.getElementById('prev-btn').addEventListener('click', function() {
-            resetCardButtons();
-
-            currentSongIndex--;
-            if (currentSongIndex < 0) {
-                currentSongIndex = songs.length - 1;
+            function togglePlayPause() {
+                if (isPlaying) {
+                    audioPlayer.pause();
+                    updatePlayPauseButtons('play');
+                } else {
+                    audioPlayer.play();
+                    updatePlayPauseButtons('pause');
+                }
+                isPlaying = !isPlaying;
             }
 
+            function updatePlayPauseButtons(action) {
+                if (action === 'play') {
+                    playPauseBtn.querySelector('i').classList.remove('fa-pause');
+                    playPauseBtn.querySelector('i').classList.add('fa-play');
+                } else {
+                    playPauseBtn.querySelector('i').classList.remove('fa-play');
+                    playPauseBtn.querySelector('i').classList.add('fa-pause');
+                }
+
+                resetCardButtons();
+
+                let cardButton = document.getElementById('play-pause-btn-' + currentSongIndex);
+                if (action === 'play') {
+                    cardButton.querySelector('i').classList.remove('fa-pause');
+                    cardButton.querySelector('i').classList.add('fa-play');
+                } else {
+                    cardButton.querySelector('i').classList.remove('fa-play');
+                    cardButton.querySelector('i').classList.add('fa-pause');
+                }
+            }
+
+            function resetCardButtons() {
+                // Reset semua tombol card audio ke status play
+                document.querySelectorAll('.play-pause-btn i').forEach(function(icon) {
+                    icon.classList.remove('fa-pause');
+                    icon.classList.add('fa-play');
+                });
+            }
+
+            function toggleCardPlayPause(event, index) {
+                event.stopPropagation();
+                if (currentSongIndex !== index) {
+                    resetCardButtons();
+                    currentSongIndex = index;
+                    loadSong(currentSongIndex);
+                }
+                togglePlayPause();
+            }
+
+            // Event listener untuk progress bar
+            audioPlayer.addEventListener('timeupdate', function() {
+                if (!isSeeking) { // Update hanya jika tidak sedang seek
+                    progressBar.value = Math.floor(audioPlayer.currentTime);
+                    currentTimeDisplay.textContent = formatTime(audioPlayer.currentTime);
+                }
+            });
+
+            // Menandakan user sedang menggeser progress bar
+            progressBar.addEventListener('mousedown', function() {
+                isSeeking = true; // Menandakan sedang seek
+            });
+
+            // Update waktu saat sedang menggeser progress bar
+            progressBar.addEventListener('input', function() {
+                let seekTime = progressBar.value;
+                currentTimeDisplay.textContent = formatTime(seekTime); // Update tampilan waktu saat di-drag
+            });
+
+            // Update waktu audio player saat progress bar dilepas
+            progressBar.addEventListener('mouseup', function() {
+                isSeeking = false; // Selesai seek
+                audioPlayer.currentTime = progressBar.value; // Update waktu audio player
+            });
+
+
+            // Kontrol volume
+            volumeControl.addEventListener('input', function() {
+                audioPlayer.volume = volumeControl.value;
+            });
+
+            // Mute / Unmute audio
+            muteBtn.addEventListener('click', function() {
+                if (audioPlayer.muted) {
+                    audioPlayer.muted = false;
+                    muteBtn.querySelector('i').classList.remove('fa-volume-mute');
+                    muteBtn.querySelector('i').classList.add('fa-volume-up');
+                } else {
+                    audioPlayer.muted = true;
+                    muteBtn.querySelector('i').classList.remove('fa-volume-up');
+                    muteBtn.querySelector('i').classList.add('fa-volume-mute');
+                }
+            });
+
+            function formatTime(seconds) {
+                let minutes = Math.floor(seconds / 60);
+                let secs = Math.floor(seconds % 60);
+                if (secs < 10) secs = '0' + secs;
+                return minutes + ":" + secs;
+            }
+
+            audioPlayer.onended = function() {
+                // Reset tombol card sebelumnya
+                resetCardButtons();
+
+                // Pindah ke lagu selanjutnya
+                currentSongIndex++;
+                if (currentSongIndex >= songs.length) {
+                    currentSongIndex = 0; // Jika sudah sampai akhir playlist, kembali ke awal
+                }
+
+                loadSong(currentSongIndex); // Load lagu berikutnya
+                audioPlayer.play(); // Langsung putar lagu berikutnya
+                updatePlayPauseButtons('pause'); // Update tampilan tombol
+            };
+
+            // Tombol untuk lagu sebelumnya
+            document.getElementById('prev-btn').addEventListener('click', function() {
+                resetCardButtons();
+
+                currentSongIndex--;
+                if (currentSongIndex < 0) {
+                    currentSongIndex = songs.length - 1;
+                }
+
+                loadSong(currentSongIndex);
+                audioPlayer.play();
+                updatePlayPauseButtons('pause');
+            });
+
+            // Tombol untuk lagu selanjutnya
+            document.getElementById('next-btn').addEventListener('click', function() {
+                resetCardButtons();
+
+                currentSongIndex++;
+                if (currentSongIndex >= songs.length) {
+                    currentSongIndex = 0;
+                }
+
+                loadSong(currentSongIndex);
+                audioPlayer.play();
+                updatePlayPauseButtons('pause');
+            });
+
+            // Muat lagu pertama saat halaman dimuat
             loadSong(currentSongIndex);
-            audioPlayer.play();
-            updatePlayPauseButtons('pause');
-        });
+        </script>
 
-        // Tombol untuk lagu selanjutnya
-        document.getElementById('next-btn').addEventListener('click', function() {
-            resetCardButtons();
-
-            currentSongIndex++;
-            if (currentSongIndex >= songs.length) {
-                currentSongIndex = 0;
-            }
-
-            loadSong(currentSongIndex);
-            audioPlayer.play();
-            updatePlayPauseButtons('pause');
-        });
-
-        // Muat lagu pertama saat halaman dimuat
-        loadSong(currentSongIndex);
-    </script>
-
-@endsection
+    @endsection
 @endsection

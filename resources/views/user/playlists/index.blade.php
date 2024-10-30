@@ -41,7 +41,7 @@
 
         <div class="content">
             @if ($playlists->isEmpty())
-                <p>Lagu yang cari tidak ditemukan...</p>
+                <p>Lagu yang anda cari tidak ditemukan...</p>
             @else
                 @forelse($playlists as $playlist)
                     <a href="{{ route('user.playlists.show', $playlist->id) }}" class="col-md-4">
