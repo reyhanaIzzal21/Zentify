@@ -9,7 +9,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\User\PlaylistController;
 use App\Http\Controllers\HomeController;
 
-
 // admin
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ArtistController;
@@ -50,15 +49,10 @@ Route::middleware(['auth', 'userMiddleware'])->group(function () {
 Route::prefix('admin')->name('admin.')->middleware(['auth', 'adminMiddleware'])->group(function () {
     Route::get('dashboard', [AdminController::class, 'index'])->name('dashboard');
     Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
-
     Route::resource('songs', SongController::class);
-
     Route::resource('artists', ArtistController::class);
-
     Route::resource('albums', AlbumController::class);
-
     Route::resource('genres', GenreController::class);
-
     Route::resource('users', UserController::class);
 });
 

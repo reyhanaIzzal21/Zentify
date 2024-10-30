@@ -12,7 +12,7 @@
 
         <a href="{{ route('admin.artists.create') }}" >
             <button class="button">
-              <span class="liquid"></span>  
+              <span class="liquid"></span>
               <span class="btn-txt">Tambah Artis Baru</span>
             </button>
         </a>
