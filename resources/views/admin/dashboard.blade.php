@@ -5,7 +5,7 @@
 @section('title', 'Zentify | Admin Dashboard')
 
 <link rel="stylesheet" href="{{ asset('admin/css/dashboard-index.css') }}">
-<h1 class="h1-header">Dashboard Admin</h1>
+<h1 class="h1-header">Dashboard Admin/</h1>
 
 <section class="container">
     {{-- Kartu Statistik Singkat --}}
@@ -44,7 +44,7 @@
             </ol>
         </div>
     </div>
-    
+
 
 
 
@@ -84,7 +84,7 @@
                 backgroundColor: '#858585',
                 borderColor: '#0060E0',
                 borderWidth: 2,
-                // tension: 0.4 
+                // tension: 0.4
             }]
         };
 

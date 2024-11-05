@@ -17,48 +17,49 @@
     background-color: var(--biru);
     border: 5rem;
 }
-  
+
   body {
     background-color: var(--hitam);
     color: var(--putih);
     font-family: 'Arial', sans-serif;
   }
-  
+
   .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
   }
-  
+
   h1 {
-    color: var(--putih);
-    margin-bottom: 20px;
-    font-size: 30px;
-    font-weight: 700;
+    font-size: 1rem;
+    color: var(--abu-muda);
   }
-  
+  h1 span{
+    color: var(--putih);
+  }
+
   .user-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
   }
-  
+
   .user-table th,
   .user-table td {
     padding: 12px 15px;
     text-align: left;
     border-bottom: 1px solid var(--abu-muda);
   }
-  
+
   .user-table th {
     background-color: var(--abu);
     color: var(--putih);
   }
-  
+
   .user-table tr:hover {
     background-color: var(--abu);
   }
-  
+
   .btn-action {
     padding: 6px 12px;
     border-radius: 5px;
@@ -70,21 +71,20 @@
     align-items: center;
     transition: background-color 0.3s;
   }
-  
+
   .btn-action i {
     margin-right: 6px;
   }
-  
+
   .btn-action.edit {
     background-color: #f0ad4e;
   }
-  
+
   .btn-action.delete {
     background-color: #d9534f;
   }
-  
+
   .btn-action:hover {
     background-color: var(--abu-muda);
     color: var(--biru);
   }
-  

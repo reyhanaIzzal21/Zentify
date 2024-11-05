@@ -4,29 +4,29 @@
 
 @section('title', 'Zentify | Daftar Album')
 
-<link rel="stylesheet" href="{{ asset('admin/css/albums/album-index.css')}}">
+<link rel="stylesheet" href="{{ asset('admin/css/albums/album-index.css') }}">
 <div class="container mx-auto py-8">
     <div class="header">
-        <h1 class="text-2xl font-semibold text-white mb-6">Daftar Album</h1>
-        <a href="{{ route('admin.albums.create') }}" >
+        <h1>DASHBOARD ADMIN <span>/ ALBUM</span></h1>
+        <a href="{{ route('admin.albums.create') }}">
             <button class="button">
-              <span class="liquid"></span>  
-              <span class="btn-txt">Tambah Album Baru</span>
+                <span class="liquid"></span>
+                <span class="btn-txt">Tambah Album Baru</span>
             </button>
         </a>
     </div>
 
     {{-- Menampilkan pesan error --}}
-    @if(session('error'))
+    @if (session('error'))
         <div class="alert alert-danger">
             {{ session('error') }}
         </div>
     @endif
 
     @if (session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
     @endif
 
     @if ($albums->count())

@@ -5,13 +5,13 @@
     --putih: #ebebeb;
     --abu-muda: #858585;
   }
-  
+
   body {
     background-color: var(--hitam);
     color: var(--putih);
     font-family: 'Arial', sans-serif;
   }
-  
+
   .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -22,31 +22,34 @@
     justify-content: space-between;
   }
   .header h1{
-    font-size: 30px;
-    font-weight: 700;
+    font-size: 1rem;
+    color: var(--abu-muda);
+  }
+  .header h1 span{
+    color: var(--putih);
   }
   .genre-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
   }
-  
+
   .genre-table th,
   .genre-table td {
     padding: 12px 15px;
     text-align: left;
     border-bottom: 1px solid var(--abu-muda);
   }
-  
+
   .genre-table th {
     background-color: var(--abu);
     color: var(--putih);
   }
-  
+
   .genre-table tr:hover {
     background-color: var(--abu);
   }
-  
+
   .btn-action {
     padding: 6px 12px;
     border-radius: 5px;
@@ -58,23 +61,23 @@
     align-items: center;
     transition: background-color 0.3s;
   }
-  
+
   .btn-action i {
     margin-right: 6px;
   }
-  
+
   .btn-action.view {
     background-color: var(--biru);
   }
-  
+
   .btn-action.edit {
     background-color: #f0ad4e;
   }
-  
+
   .btn-action.delete {
     background-color: #d9534f;
   }
-  
+
   .btn-action:hover {
     background-color: var(--abu-muda);
     color: var(--biru);
@@ -96,7 +99,7 @@
   .button:hover{
     box-shadow: 0 0 1rem var(--biru);
   }
-  
+
   .liquid {
     background-color: #0060E0;
     width: 200px;
@@ -107,7 +110,7 @@
     box-shadow: inset 5px -5px 25px #0060E0,
     inset -5px 0px 25px #0060E0;
   }
-  
+
   .liquid::after {
     content: '';
     width: 450px;
@@ -120,7 +123,7 @@
     border-radius: 45%;
     animation: animate 5s linear 2s infinite;
   }
-  
+
   .liquid::before {
     content: '';
     width: 450px;
@@ -133,7 +136,7 @@
     border-radius: 40%;
     animation: animate 5s linear 1.8s infinite;
   }
-  
+
   .btn-txt {
     position: relative;
     z-index: 1;
@@ -141,22 +144,22 @@
     font-size: 18px;
     font-family: sans-serif;
   }
-  
+
   @keyframes animate {
     from {
       transform: rotate(0deg);
     }
-  
+
     to {
       transform: rotate(360deg);
     }
   }
-  
+
   .alert-success {
     background-color: var(--biru);
     color: var(--putih);
     padding: 10px;
-    margin: 20px 0; 
+    margin: 20px 0;
     border-radius: 4px;
     display: flex;
     align-items: center;
@@ -166,7 +169,7 @@
     background-color: transparent;
     color: #ff0000;
     padding: 10px;
-    margin: 20px 0; 
+    margin: 20px 0;
     display: flex;
     align-items: center;
     font-weight: bold;

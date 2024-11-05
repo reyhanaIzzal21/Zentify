@@ -5,7 +5,7 @@
     --putih: #ebebeb;
     --abu-muda: #858585;
   }
-  
+
   body {
     background-color: var(--hitam);
     color: var(--putih);
@@ -13,7 +13,7 @@
     margin: 0;
     padding: 0;
   }
-  
+
   .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -25,8 +25,12 @@
     margin: 10px 0 0 0;
   }
   .container .h2-header{
-    font-size: 30px;
-    font-weight: 700;
+    font-size: 1rem;
+    color: var(--abu-muda);
+    letter-spacing: 1px;
+  }
+  .container .h2-header span{
+    color: var(--putih);
   }
   .artist-grid {
     margin-top: 30px;
@@ -34,7 +38,7 @@
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 30px;
   }
-  
+
   .artist-card {
     background-color: var(--abu);
     border-radius: 12px;
@@ -42,29 +46,29 @@
     position: relative;
     transition: transform 0.3s;
   }
-  
+
   .artist-card:hover {
     transform: scale(1.02);
   }
-  
+
   .artist-photo {
     position: relative;
     width: 100%;
     height: 200px;
     overflow: hidden;
   }
-  
+
   .artist-photo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s;
   }
-  
+
   .artist-card:hover img {
     transform: scale(1.1);
   }
-  
+
   .overlay {
     position: absolute;
     top: 0;
@@ -78,11 +82,11 @@
     opacity: 0;
     transition: opacity 0.3s;
   }
-  
+
   .artist-card:hover .overlay {
     opacity: 1;
   }
-  
+
   .play-button {
     background-color: var(--biru);
     color: var(--putih);
@@ -94,34 +98,34 @@
     align-items: center;
     transition: background-color 0.3s;
   }
-  
+
   .play-button:hover {
     background-color: var(--putih);
     color: var(--biru);
   }
-  
+
   .artist-info {
     text-align: center;
     padding: 15px 0;
   }
-  
+
   .artist-info h3 {
     margin: 10px 0 5px;
     font-size: 18px;
     color: var(--putih);
   }
-  
+
   .artist-info p {
     margin: 0;
     color: var(--abu-muda);
     font-size: 14px;
   }
-  
+
   .alert-success {
     background-color: var(--biru);
     color: var(--putih);
     padding: 10px;
-    margin: 20px 0; 
+    margin: 20px 0;
     border-radius: 4px;
     display: flex;
     align-items: center;
@@ -131,7 +135,7 @@
     background-color: transparent;
     color: #ff0000;
     padding: 10px;
-    margin: 20px 0; 
+    margin: 20px 0;
     display: flex;
     align-items: center;
     font-weight: bold;
@@ -154,7 +158,7 @@
   .button:hover{
     box-shadow: 0 0 1rem var(--biru);
   }
-  
+
   .liquid {
     background-color: #0060E0;
     width: 200px;
@@ -165,7 +169,7 @@
     box-shadow: inset 5px -5px 25px #0060E0,
     inset -5px 0px 25px #0060E0;
   }
-  
+
   .liquid::after {
     content: '';
     width: 450px;
@@ -178,7 +182,7 @@
     border-radius: 45%;
     animation: animate 5s linear 2s infinite;
   }
-  
+
   .liquid::before {
     content: '';
     width: 450px;
@@ -191,7 +195,7 @@
     border-radius: 40%;
     animation: animate 5s linear 1.8s infinite;
   }
-  
+
   .btn-txt {
     position: relative;
     z-index: 1;
@@ -199,17 +203,17 @@
     font-size: 18px;
     font-family: sans-serif;
   }
-  
+
   @keyframes animate {
     from {
       transform: rotate(0deg);
     }
-  
+
     to {
       transform: rotate(360deg);
     }
   }
-  
+
   @media screen and (max-width: 768px) {
     .artist-grid {
         grid-template-columns: repeat(2, 1fr);
