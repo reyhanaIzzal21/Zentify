@@ -42,7 +42,8 @@
                         </a>
                     </li>
                 @empty
-                    <p>Anda belum memiliki playlist, <a href="{{ 'user.playlists.create' }}" class="hover:underline">buat
+                    <p>Anda belum memiliki playlist, <a href="{{ route('user.playlists.create') }}"
+                            class="hover:underline">buat
                             playlist pertama
                             yuk...</a></p>
                 @endforelse
