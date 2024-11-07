@@ -34,7 +34,7 @@ class AdminController extends Controller
         }
 
         // Ambil data 1 tahun ke belakang, mulai dari 1 Januari tahun ini
-        $startDate = Carbon::create(Carbon::now()->year, 1, 1); // Awal tahun ini (1 Januari)
+        $startDate = Carbon::create(Carbon::now()->year, 6, 1); // Awal tahun ini (1 Januari)
         $endDate = Carbon::create(Carbon::now()->year, 12, 31); // Akhir tahun ini (31 Desember)
 
         // Buat array untuk menyimpan data per minggu selama 52 minggu
